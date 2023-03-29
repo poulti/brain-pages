@@ -76,3 +76,11 @@ Can actually switch to swarm, test deploying a stack -- and if it doesn't work, 
   docker stack rm homeassistant
   ```
 - Uncomment the network section
+
+
+<figure markdown>
+
+![Diablo IV Early access Wiz](./images/wizard.png) 
+
+<figcaption markdown>Diablo IV Early access Wiz. Credit: [poulti](https://twitter.com/poulti)</figcaption>
+</figure>

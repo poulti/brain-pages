@@ -1,3 +1,5 @@
 site_name: My Brain
 theme:
   name: material
+plugins:
+   - glightbox
