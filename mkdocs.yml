@@ -1,5 +1,6 @@
-site_name: My Brain
+site_name: Brain dump
 theme:
   name: material
 plugins:
+   - search
    - glightbox
