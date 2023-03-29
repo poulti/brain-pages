@@ -1,4 +1,17 @@
-site_name: Brain dump
+# Project information
+site_name: Brain pages
+site_url: https://poulti.github.io/brain-pages/
+site_author: Poulti
+site_description: >-
+  Auto published notes from Poulti's second brain
+# Repository
+repo_name: poulti/brain-pages
+repo_url: https://github.com/poulti/brain-pages/
+
+# Copyright
+copyright: Copyright &copy; 2023 Poulti - probably not a lot to copy anyway
+
+# Configuration
 theme:
   name: material
 plugins:
