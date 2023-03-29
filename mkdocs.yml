@@ -11,9 +11,37 @@ repo_url: https://github.com/poulti/brain-pages/
 # Copyright
 copyright: Copyright &copy; 2023 Poulti - probably not a lot to copy anyway
 
+extra:
+  social:
+    - icon: 'fontawesome/brands/twitter'
+      link: 'https://twitter.com/poulti'
+
 # Configuration
 theme:
   name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: light
+      primary: 'amber'
+      accent: 'orange'
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Embrace the dark side
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: 'deep orange'
+      accent: 'amber'
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+
+extra_css:
+  - stylesheets/extra.css
+
 plugins:
    - search
    - glightbox
+
+markdown_extensions:
+  - mdx_include:
+      base_path: docs
