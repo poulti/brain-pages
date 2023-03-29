@@ -2,6 +2,8 @@
 tags: Docker, Blog
 ---
 
+> This page is WIP - as I progress through the journey, I'll update my notes and this page will be refreshed a couple minutes later
+
 # How to migrate a docker compose file to swarm mode?
 ...from `docker compose up -d` to `docker stack deploy --compose-file docker-compose.yaml ha`
 
