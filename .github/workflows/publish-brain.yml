@@ -19,6 +19,7 @@ jobs:
           path: .cache
       - run: pip install \
               mkdocs-material \
+              mkdocs-minify-plugin \
               mdx-include==1.3.3 \
               mkdocs-glightbox
       - run: mkdocs gh-deploy --force
