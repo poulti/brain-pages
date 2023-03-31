@@ -49,6 +49,7 @@ plugins:
   - minify:
       minify_html: true
   - glightbox
+  - git-revision-date-localized
 
 # Extensions
 markdown_extensions:

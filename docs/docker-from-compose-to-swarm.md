@@ -14,13 +14,14 @@ Boring story, for context:
 >*After installing a PKI and OpenVPN manually on a Raspberry Pi 4, I've been wanting a more flexible way to install/remove/update stuff on it... Containers looked like the way to go... but what if I want to run many things? That'd be fun to have a cluster of Raspberry Pi... which led me to find the Turing Pi 2 cluster board. And as I researched what people usually deploy on Raspberry clusters, I kept seeing the Home Assistant logo...*
 
 >*So I looked at it up close and started running a Home Assistant instance.
-While waiting for the Turing Pi 2 to release, I thought I would run the containers directly on my desktop using Docker Compose. And if I did it right, I would "just" have to move my containers to the new hardware once ready... So I started creating a docker compose file, with just Home Assistant to begin with.*
+While waiting for the Turing Pi 2 to release, I thought I would run the containers directly on my desktop using Docker Compose. And if I did it right, I would "just" have to move my containers to the new hardware once ready, right?... well that takes a couple precautions*
 
 ### A first docker compose, running on windows / docker desktop 
 
+So I started creating a docker compose file, with just Home Assistant to begin with.
 Simple container, local bind
 Adding USB... Leading to USBIP
-Then needing to install a distro in the WSL2 (why already?)
+Then needing to install a distro in the WSL2 (why?)
 
 ### Adding more container to compose... and more complexity
 
