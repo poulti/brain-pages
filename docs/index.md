@@ -1,17 +1,18 @@
-# Welcome to MkDocs
+---
+title: Home
+---
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+# Welcome to Brain Pages!
 
-## Commands
+This website is a subset of my second brain (ie. where I store tips and tricks, lessons learnt etc.), in particular, what I struggled to find on the web.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+Since I took note of it already, I may as well share it... Hopefully that could be useful to someone!
 
-## Project layout
+Contact: please react using [issues on GitHub](https://github.com/poulti/brain-pages/issues), or try [Poulti](https://twitter.com/poulti) on Twitter
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+> **Note**
+> 
+> The content of the website is generated automatically from this [GitHub repo](https://github.com/poulti/brain-pages/).
+> 
+> If the website is broken, it might actually be updating, try again a few minutes later.
+
