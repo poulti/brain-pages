@@ -49,6 +49,7 @@ plugins:
   - minify:
       minify_html: true
   - glightbox
+  #FIXME: doesn't work with the preview env
   - git-revision-date-localized
 
 # Extensions
@@ -61,7 +62,8 @@ markdown_extensions:
       options:
         custom_icons:
           - overrides/.icons
-
+  - attr_list
+  - md_in_html
 
 # Page tree example
 # nav:

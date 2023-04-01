@@ -104,15 +104,11 @@ Can actually switch to swarm, test deploying a stack -- and if it doesn't work, 
   ```
 - Uncomment the network section
 
+### Test image
 
 <figure markdown>
 
-### Test image inclusion + lightbox
-
-<figure>
-
-![Diablo IV Early access Wiz](./images/wizard.png) 
-
-<figcaption markdown> Diablo IV Early access Wiz. Credit: [me](https://twitter.com/poulti) </figcaption>
+![Diablo IV Early access Wiz](./images/wizard.png){ width="300" }
+<figcaption markdown> Diablo IV Early access Wiz. </figcaption>
 
 </figure>
