@@ -21,6 +21,9 @@ extra:
 theme:
   name: material
   custom_dir: overrides
+  features:
+    - content.code.copy
+    - content.code.annotate
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: light
@@ -50,12 +53,18 @@ plugins:
       minify_html: true
   - glightbox
   #FIXME: doesn't work with the preview env
-  - git-revision-date-localized
+  # - git-revision-date-localized
 
 # Extensions
 markdown_extensions:
   - mdx_include:
       base_path: docs
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.highlight:
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg

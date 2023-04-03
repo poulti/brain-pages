@@ -22,5 +22,6 @@ jobs:
               mkdocs-minify-plugin \
               mdx-include==1.3.3 \
               mkdocs-glightbox \
-              mkdocs-git-revision-date-localized-plugin
+              mkdocs-git-revision-date-localized-plugin \
+              Pygments
       - run: mkdocs gh-deploy --force

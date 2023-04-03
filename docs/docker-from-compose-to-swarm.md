@@ -32,10 +32,11 @@ Specific features used
 
 Will have to install docker and configure many compute modules. Don't really want to do that manually and miss anything... Here comes Ansible 
 TODO: ansible for setting up the Swarm Mode
+My playbook is based on Jeff Geerling's Turing Pi 2, where I swapped K3s for Docker Swarm Mode: https://github.com/geerlingguy/turing-pi-2-cluster
 
 ## 1. Looking at Swarm Mode: many questions came up...
 
-That's probably what I googled when thinking of the migration to Swarm Mode:
+Questions I had when thinking of the migration to Swarm Mode:
 - how to deploy a **compose file** in swarm mode?
 - how to access **bound folders** in swarm mode?
 - how to access **USB devices** in swarm mode?
@@ -75,8 +76,76 @@ Two things to deal with:
 
 2. Even on the right node, how can we pass the USB device... without the "device" section?
     - This one is trickier, we have to pass the device as a **volume**, and manually authorise the device for the container using a number of scripts
-    - TODO: Continue the explanation of the different scripts: udev rule, find the container, create the authorization manually
 
+#### Create rules to mount the device as a volume
+The idea is as follows:
+
+1. The UDEV rule detects a USB device with a given vendor id and product id, then assigns it a name (symlink) and runs a 'docker-setup-*device*.sh' shell script.
+2. The 'docker-setup-*device*.sh' script finds the CID of a given container, by name and adds the authorisations for the USB device to the devices.allow file for this container.
+3. The service makes sure the script in 2. is executed regularly (because the UDEV rule is only activated when the USB device is plugged)
+4. A script is run by the service, to loop-execute the script in 2.
+
+Example with my zigbee USB stick
+
+1. UDEV rule: `/etc/udev/rules.d/99-zigbee.rules`
+
+    ``` sh title="99-zigbee.rules"
+    SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", SYMLINK+="zigbee",  RUN+="/usr/local/bin/docker-setup-zigbee.sh"
+    ```
+
+2. Shell script to set up the permissions: `/usr/local/bin/docker-setup-zigbee.sh`
+
+    ``` shell title="docker-setup-zigbee.sh"
+    #!/bin/bash
+    USBDEV=`readlink -f /dev/zigbee` # (1)!
+    read minor major < <(stat -c '%T %t' $USBDEV)
+    if [[ -z $minor || -z $major ]]; then
+      echo 'Device not found'
+      exit
+    fi
+    dminor=$((0x${minor}))
+    dmajor=$((0x${major}))
+    CID=`docker ps -a --no-trunc | grep zigbee2mqtt | head -1 |  awk '{print $1}'` # (2)!
+    if [[ -z $CID ]]; then
+      echo 'CID not found'
+      exit
+    fi
+    echo 'Setting permissions'
+    echo "c $dmajor:$dminor rwm" > /sys/fs/cgroup/devices/docker/$CID/devices.allow
+    ```
+
+    1. Change the name of the device, `zigbee` (to be the same as the SYMLINK name in the UDEV rule in previous step)
+    2. Change the name of the container that needs access to the device, `zigbee2mqtt` in this example
+
+3. Service to launch the setup script all the time: ``/etc/systemd/system/docker-event-listener-zigbee.service``
+
+    ``` ini title="docker-event-listener-zigbee.service"
+    [Unit]
+    Description=Docker Event Listener for USB devices
+    After=network.target
+    StartLimitIntervalSec=0
+    [Service]
+    Type=simple
+    Restart=always
+    RestartSec=1
+    User=root
+    ExecStart=/bin/bash /usr/local/bin/docker-event-listener-zigbee.sh
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
+
+4. Script triggered by the service: ``/usr/local/bin/docker-event-listener-zigbee.sh``
+
+    ```shell title="docker-event-listener-zigbee.sh"
+    #!/bin/bash
+    docker events --filter 'event=start'| \
+    while read line; do
+      /usr/local/bin/docker-setup-zigbee.sh
+    done
+    ```
+
+Source and more details: https://github.com/Koenkk/zigbee2mqtt/issues/2049
 
 ### Volumes and storage
 
