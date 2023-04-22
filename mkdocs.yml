@@ -53,13 +53,19 @@ plugins:
       minify_html: true
   - glightbox
   #FIXME: doesn't work with the preview env
-  # - git-revision-date-localized
+  - git-revision-date-localized
 
 # Extensions
 markdown_extensions:
   - mdx_include:
       base_path: docs
-  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.snippets
   - pymdownx.highlight:
       line_spans: __span

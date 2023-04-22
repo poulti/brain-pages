@@ -23,15 +23,47 @@ Simple container, local bind
 Adding USB... Leading to USBIP
 Then needing to install a distro in the WSL2 (why?)
 
+- Update the WSL
+wsl --update
+- Set it to WSL 2
+wsl --set-default-version 2
+- Install a distro, eg Ubuntu LTS
+https://aka.ms/wslubuntu2204
+
 ### Adding more container to compose... and more complexity
 
-Architecture diagramme
-Specific features used
+??? bug "TODO" 
+    Architecture diagramme
+
+    Specific features used
+
+
+``` mermaid
+graph BT
+  subgraph Docker
+    direction BT
+    d[Docker Deamon] --> c1[Home Assistant]
+    d --> c2[Frigate]
+    d --> c3[...]
+    d --> c4[Zigbee2MQTT]
+    d --> c5[Mosquitto]
+  end
+  WSL2 --> Docker
+  WIN[Windows + USBIP] --> WSL2
+  Hardware --> WIN
+  subgraph Hardware
+    direction LR
+    Desktop --> ZigBee
+    Desktop --> RFLink
+  end
+```
+
 
 ### Thinking of the migration to a cluster... (too soon to dive in this?)
 
 Will have to install docker and configure many compute modules. Don't really want to do that manually and miss anything... Here comes Ansible 
-TODO: ansible for setting up the Swarm Mode
+??? bug "TODO"
+    Ansible for setting up the Swarm Mode
 My playbook is based on Jeff Geerling's Turing Pi 2, where I swapped K3s for Docker Swarm Mode: https://github.com/geerlingguy/turing-pi-2-cluster
 
 ## 1. Looking at Swarm Mode: many questions came up...
@@ -61,7 +93,8 @@ This is not a comprehensive list (refer to the compose reference for that), but 
     - Similar to the USB devices, you can't mount bind on a node, while services are moving potentially on any node of the cluster.
 - ``shm_size:``
     - https://docs.frigate.video/installation/#calculating-required-shm-size
-    - TODO: ?? what impacts on Frigate --> workaround with a volume tmpfs targeted to /dev/shm
+    ??? bug "TODO"
+        what impacts on Frigate --> workaround with a volume tmpfs targeted to /dev/shm
 
 ### How to pass devices in Swarm Mode?
 
@@ -70,18 +103,30 @@ Two things to deal with:
 1. By construction, services in a swarm can be run on any node... which will not work if we need to access a specific USB device. Can't wait to be lucky and be on the right node
     - For this we are going to use the swarm specific section "deploy" to indicate a constraints for the service needing the USB device.
     
-    ```
-    (FIXME: example of deploy section)
-    ```
+    ??? bug "TODO"
+        Example of deploy section
+
 
 2. Even on the right node, how can we pass the USB device... without the "device" section?
     - This one is trickier, we have to pass the device as a **volume**, and manually authorise the device for the container using a number of scripts
+
+3. Cgroups v1 vs v2
+    - Work in WSL as still v1...
+    - To know:
+      - ``stat -fc %T /sys/fs/cgroup/``
+        For cgroup v2, the output is ``cgroup2fs``.
+        For cgroup v1, the output is ``tmpfs``.
+    - For 2 to work on modern systems (eg. rasp / modern linux): mount v1 device? 
+    - sudo mkdir /sys/fs/cgroup/devices
+    - sudo mount -t cgroup -o devices none /sys/fs/cgroup/devices
+
 
 #### Create rules to mount the device as a volume
 The idea is as follows:
 
 1. The UDEV rule detects a USB device with a given vendor id and product id, then assigns it a name (symlink) and runs a 'docker-setup-*device*.sh' shell script.
 2. The 'docker-setup-*device*.sh' script finds the CID of a given container, by name and adds the authorisations for the USB device to the devices.allow file for this container.
+   1. Device access authorisations are hardcoded for the Coral to ``c 189:* rwm`` because it changes vendor and product id after first inference (ie the USB device is different when you plug it and after first access)
 3. The service makes sure the script in 2. is executed regularly (because the UDEV rule is only activated when the USB device is plugged)
 4. A script is run by the service, to loop-execute the script in 2.
 
@@ -157,6 +202,47 @@ Source and more details: https://github.com/Koenkk/zigbee2mqtt/issues/2049
 >If you have multiple hosts, it means each host will create its own folder on demand.
 
   - TODO: use NFS volumes
+
+## Carve out portainer from the compose file
+
+Portainer is used as a spring board and will be run on the master node automatically 
+The single service "portainer" compose file also creates the custom overlay network for others services to join
+
+From portainer, the rest of the previous compose, now stack, will be launched. A template is created to recreate/launch easily.
+Doing it from portainer allows to control the stack from the web
+
+## Update access to node-red files
+
+[From 'Running under Docker' (node-red doc)](https://nodered.org/docs/getting-started/docker)
+
+> Note: Users migrating from version 0.20 to 1.0 will need to ensure that any existing /data directory has the correct ownership. As of 1.0 this needs to be 1000:1000. This can be forced by the command `sudo chown -R 1000:1000 path/to/your/node-red/data`
+
+In my case, on my storage node, I ran:
+```
+sudo chown -R 1000:1000 /zfsdata/nfsshare/HomeAssistant/node-red
+```
+
+## Hardware acceleration on Rasp pi4
+
+Doesn't work since a certain update of Linux Kernel... bug in ffmpeg, not fixed?
+
+## Notes for later - migration steps on D-day
+
+- [ ] Flash 2x raspberry emmc
+- [ ] Flash 1x micro sd card raspberry 
+- [ ] Flash 1x micro sd card Jetson
+- [ ] Install components in box
+- [ ] Plug Pi, Jetson, harddrives
+- [ ] Test boot OK
+- [ ] Run first Ansible ping / accept SSH keys
+- [ ] Configure USB2 to the right node
+- [ ] Check Ansible config.yml for correct true/false settings
+- [ ] Test Ansible setup playbooks (swarm activation + NFS setup)
+- [ ] Copy data on NFS storage
+- [ ] Change Docker Volumes to NFS binds
+- [ ] Change Frigate image to the right CPU arch type
+- [ ] Connect USB devices to the right USB
+- [ ] Change the port forwarding from external IP
 
 ## 2. How to actually use the updated compose file in Swarm Mode? Testing...
 
