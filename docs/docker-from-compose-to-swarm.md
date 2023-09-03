@@ -225,6 +225,7 @@ sudo chown -R 1000:1000 /zfsdata/nfsshare/HomeAssistant/node-red
 ## Hardware acceleration on Rasp pi4
 
 Doesn't work since a certain update of Linux Kernel... bug in ffmpeg, not fixed?
+Fixed now (summer 2023) -- but sadly doesn't really impact the ffmpeg default processing... mostly for the object recognition... 
 
 ## Notes for later - migration steps on D-day
 
