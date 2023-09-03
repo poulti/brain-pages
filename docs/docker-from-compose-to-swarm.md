@@ -224,8 +224,41 @@ sudo chown -R 1000:1000 /zfsdata/nfsshare/HomeAssistant/node-red
 
 ## Hardware acceleration on Rasp pi4
 
-Doesn't work since a certain update of Linux Kernel... bug in ffmpeg, not fixed?
-Fixed now (summer 2023) -- but sadly doesn't really impact the ffmpeg default processing... mostly for the object recognition... 
+Linux Kernel bug fixed in July 2023 -- but sadly doesn't really impact the ffmpeg default processing... mostly for the object recognition... 
+
+## ESPHome sees all devices offline?
+
+This is due to ESPHome not resolving the device-name.local names to IP address (via mDNS).
+
+I've used a workaround for some time, by adding the following parameters to the ESPHome Docker service in docker-compose.yaml:
+```yaml
+    extra_hosts:
+      - "ep1.local:<IP of the device>"
+      - "home-assistant-glow.local:<IP of the device>"
+```
+
+My "fix" has been to repack the ESPHome image and adding avahi-utils to it, and allowing the container to access the dbus and avahi socket of the host (the host resolved the *.local properly).
+
+To do that, I'm using the following dockerfile (image published in docker hub [poulti/esphome-avahi](https://hub.docker.com/r/poulti/esphome-avahi)):
+```Dockerfile title="Dockerfile"
+FROM esphome/esphome:latest
+
+# Install Avahi for mDNS (resolving .local names)
+RUN apt-get update && apt-get install avahi-utils -y
+
+# Remove apt cache (from https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+RUN rm -rf /var/lib/apt/lists/*
+```
+
+And I added the following volumes to the ESPHome Docker service in docker-compose.yaml:
+```yaml
+    volumes:
+      (...)
+      # Added Avahi deamon socket to run avahi-browse using the cache from the host node
+      - /var/run/dbus:/var/run/dbus
+      - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
+```
+
 
 ## Notes for later - migration steps on D-day
 
