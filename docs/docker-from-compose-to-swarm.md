@@ -269,6 +269,7 @@ The [macvlan driver](https://docs.docker.com/network/drivers/macvlan/) allows th
 The catch: by construction, a macvlan network needs to know the actual network interface of the machine to talk to it - which may vary in a cluster (swarm). So you can't create a macvlan network in one go on Docker Swarm.
 
 The solution: 
+
 - create a **configuration** for a macvlan network, on each node of the cluster
 - then create the actual network from a manager of the swarm
 
@@ -278,18 +279,20 @@ In my case, it looks like (extract from my main ansible playbook):
     command: docker network create --config-only --subnet {{ docker_macvlan_subnet }} --gateway {{ docker_macvlan_gateway }} --ip-range {{ docker_macvlan_ip_range }} -o parent=eth0 {{ docker_macvlan_config_name }}
 ```
 Where:
+
 - ``docker_macvlan_subnet`` is your physical subnet to join, eg. **192.168.0.0/24**
 - ``docker_macvlan_gateway`` is your gateway in that network, eg. **192.168.0.1**. This is important for the next parameter to work as intended.
 - ``docker_macvlan_ip_range`` is the range of IP for the containers joining that network. Here I want a static IP for Traefik, so I assigned a "range of 1 IP", for instance **192.168.0.101/32**. The /32 means 32 bits of the IP are used, hence this "range" is actually the IP provided. This variable has been set to a different value for each node, to avoid IP clashes. 
 - ``parent=eth0`` is the name of the network adapter (physical one) from the node.
 - ``docker_macvlan_config_name`` is the name of the docker network config file that will be used to create the network at the swarm level (ie. need to have one with the same name on each node to be valid).
 
-From here, I had to create the macvlan network:
+And to create the macvlan network:
 ```yaml
   - name: Create macvlan network
     command: docker network create --config-from {{ docker_macvlan_config_name }} -d macvlan --scope swarm --attachable {{ docker_macvlan_net_name }}
 ```
 Where:
+
 - ``docker_macvlan_config_name`` is the name of the docker network config file above.
 - ``docker_macvlan_net_name`` is the name of the actual macvlan network your service will be joining.
 - Note the ``scope swarm``, and ``attachable`` parameters, as swarm mode services can only join networks scoped at the swarm level (ie. not a local network), so it also needs to be **attachable**.
