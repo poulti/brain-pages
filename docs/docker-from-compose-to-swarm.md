@@ -338,9 +338,8 @@ Can actually switch to swarm, test deploying a stack -- and if it doesn't work, 
   ```
 - Uncomment the network section
 
-### Test image
+### Test embedding image
 
-Updating pages - second
 <figure markdown>
 
 ![Diablo IV Early access Wiz](./images/wizard.png){ width="300" }
