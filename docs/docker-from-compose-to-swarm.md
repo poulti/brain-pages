@@ -100,9 +100,9 @@ This is not a comprehensive list (refer to the compose reference for that), but 
 
 Two things to deal with:
 
-1. By construction, services in a swarm can be run on any node... which will not work if we need to access a specific USB device. Can't wait to be lucky and be on the right node
+1. By construction, services in a swarm can be run on any node... which will not work if we need to access a specific USB device. Can't wait to be lucky and be on the right node...
     - For this we are going to use the swarm specific section "deploy" to indicate a constraints (=rule) for the service needing the USB device. 
-    - In the example below, the constraint says the node should have a label name "usb2" and a value "true".
+    - In the example below, the constraint says the node should have a label named "usb2" with a value equal to "true".
     ```yaml
     services:
         myService:
@@ -113,15 +113,15 @@ Two things to deal with:
                     constraints: [node.labels.usb2 == true]
                 replicas: 1
     ```
-- Btw, adding such a label to a node is achieved by executing the following command on a manager node:
-  ```sh
-  docker node update --label-add usb2=true <name of the node>
-  ```
+   - Btw, adding such a label to a node is achieved by executing the following command on a manager node:
+     ```sh
+     docker node update --label-add usb2=true <name of the node>
+     ```
 
-1. Even on the right node, how can we pass the USB device... without the "device" section?
+2. Even on the right node, how can we pass the USB device... without the "device" section?
     - This one is trickier, we have to pass the device as a **volume**, and manually authorise the device for the container using a number of scripts
 
-2. Cgroups v1 vs v2
+3. Cgroups v1 vs v2
     - Work in WSL as still v1...
     - To know:
       - ``stat -fc %T /sys/fs/cgroup/``
