@@ -9,7 +9,7 @@ tags: Docker, Blog
 
 ## 0. Backstory: Home Assistant in a container
 
-Boring story, for context:
+Story of my life, for context:
 
 >*After installing a PKI and OpenVPN manually on a Raspberry Pi 4, I've been wanting a more flexible way to install/remove/update stuff on it... Containers looked like the way to go... but what if I want to run many things? That'd be fun to have a cluster of Raspberry Pi... which led me to find the Turing Pi 2 cluster board. And as I researched what people usually deploy on Raspberry clusters, I kept seeing the Home Assistant logo...*
 
