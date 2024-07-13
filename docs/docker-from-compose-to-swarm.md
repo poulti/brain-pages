@@ -18,17 +18,38 @@ While waiting for the Turing Pi 2 to release, I thought I would run the containe
 
 ### A first docker compose, running on windows / docker desktop 
 
-So I started creating a docker compose file, with just Home Assistant to begin with.
+So I started creating a docker compose file, with just Home Assistant to begin with, and a Zonoff USB Zigbee dongle
 Simple container, local bind
+- TODO: example of old dockerfile, with 1 or 2 container: homeassistant, and zigbee2mqtt?
 Adding USB... Leading to USBIP
+- TODO: need to pass the USB to WSL/Linux
 Then needing to install a distro in the WSL2 (why?)
 
+- In BIOS, turn on VT-x
+- In a cmd or powershell run as admin:
+  ```
+  wsl --install
+  ```
+- Reboot
 - Update the WSL
-wsl --update
+  ```
+  wsl --update
+  ```
 - Set it to WSL 2
-wsl --set-default-version 2
-- Install a distro, eg Ubuntu LTS
-https://aka.ms/wslubuntu2204
+  ```
+  wsl --set-default-version 2
+  ```
+- Download a distro, eg Ubuntu LTS, go to https://aka.ms/wslubuntu2204
+(Go to Microsoft Store app, and search Ubuntu, download)
+- Install the distro: 
+  ```
+  wsl --install -d ubuntu
+  ```
+- Install Ansible:
+  ```
+  sudo apt-get update && sudo apt-get install -y python3-dev python3-pip libyaml-dev libffi-dev && sudo pip3 install ansible
+  ```
+
 
 ### Adding more container to compose... and more complexity
 
