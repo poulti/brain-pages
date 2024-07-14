@@ -19,10 +19,15 @@ While waiting for the Turing Pi 2 to release, I thought I would run the containe
 ### A first docker compose, running on windows / docker desktop 
 
 So I started creating a docker compose file, with just Home Assistant to begin with, and a Zonoff USB Zigbee dongle
+
 Simple container, local bind
+
 - TODO: example of old dockerfile, with 1 or 2 container: homeassistant, and zigbee2mqtt?
+- 
 Adding USB... Leading to USBIP
+
 - TODO: need to pass the USB to WSL/Linux
+- 
 Then needing to install a distro in the WSL2 (why?)
 
 - In BIOS, turn on VT-x
@@ -90,6 +95,7 @@ My playbook is based on Jeff Geerling's Turing Pi 2, where I swapped K3s for Doc
 ## 1. Looking at Swarm Mode: many questions came up...
 
 Questions I had when thinking of the migration to Swarm Mode:
+
 - how to deploy a **compose file** in swarm mode?
 - how to access **bound folders** in swarm mode?
 - how to access **USB devices** in swarm mode?
@@ -119,9 +125,10 @@ This is not a comprehensive list (refer to the compose reference for that), but 
 
 ### How to pass devices in Swarm Mode?
 
-Two things to deal with:
+Couple things to deal with:
 
-1. By construction, services in a swarm can be run on any node... which will not work if we need to access a specific USB device. Can't wait to be lucky and be on the right node...
+1. Problem: by construction, services in a swarm can be run on any node... which will not work if we need to access a specific USB device. Can't wait to be lucky and be on the right node...
+   Solution:
     - For this we are going to use the swarm specific section "deploy" to indicate a constraints (=rule) for the service needing the USB device. 
     - In the example below, the constraint says the node should have a label named "usb2" with a value equal to "true".
     ```yaml
@@ -134,10 +141,10 @@ Two things to deal with:
                     constraints: [node.labels.usb2 == true]
                 replicas: 1
     ```
-   - Btw, adding such a label to a node is achieved by executing the following command on a manager node:
-     ```sh
-     docker node update --label-add usb2=true <name of the node>
-     ```
+      - Btw, adding such a label to a node is achieved by executing the following command on a manager node:
+        ```sh
+        docker node update --label-add usb2=true <name of the node>
+        ```
 
 2. Even on the right node, how can we pass the USB device... without the "device" section?
     - This one is trickier, we have to pass the device as a **volume**, and manually authorise the device for the container using a number of scripts
@@ -314,7 +321,7 @@ Where:
 
 - ``docker_macvlan_subnet`` is your physical subnet to join, eg. **192.168.0.0/24**
 - ``docker_macvlan_gateway`` is your gateway in that network, eg. **192.168.0.1**. This is important for the next parameter to work as intended.
-- ``docker_macvlan_ip_range`` is the range of IP for the containers joining that network. Here I want a static IP for Traefik, so I assigned a "range of 1 IP", for instance **192.168.0.101/32**. The /32 means 32 bits of the IP are used, hence this "range" is actually the IP provided. This variable has been set to a different value for each node, to avoid IP clashes. 
+- ``docker_macvlan_ip_range`` is the range of IP for the containers joining that network. Here I want a static IP for Traefik, so I assigned a "range of 1 IP", for instance **192.168.0.101/32**. The /32 means 32 bits of the IP are used, hence this "range" is actually the 1 IP provided. This variable has been set to a different value for each node, to avoid IP clashes. 
 - ``parent=eth0`` is the name of the network adapter (physical one) from the node.
 - ``docker_macvlan_config_name`` is the name of the docker network config file that will be used to create the network at the swarm level (ie. need to have one with the same name on each node to be valid).
 
@@ -331,7 +338,7 @@ Where:
 
 After that and to wrap up, I had to update my local DNS entries to point to the newly acquired IP for Traefik (ie. the 192.168.0.101 above, instead of the usual IP of my cluster).
 
-And TADA, my access.log change from having only 10.0.0.2 IPs to displaying beautiful external IPs like 148.252.141.15:
+And TADA, my access.log change from having only 10.0.0.2 IPs to displaying beautiful external IPs from the clients, like 148.252.141.15:
 ```log
 10.0.0.2 - - [23/Sep/2023:13:49:35 +0100] "GET /apis/tasks HTTP/2.0" 304 0 "-" "-" 605 "websecure-swarmviz@docker" "IP-REDACTED" 65ms
 148.252.141.15 - - [23/Sep/2023:13:49:43 +0100] "GET /api/history/period/2023-09-23T12:49:29.348Z?filter_entity_id=sensor.processor_use&end_time=2023-09-23T12:49:44.087Z&skip_initial_state&minimal_response HTTP/2.0" 200 10 "-" "-" 607 "websecure-homeassistant-router@file" "IP-REDACTED" 36ms
