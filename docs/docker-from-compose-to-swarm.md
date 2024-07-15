@@ -11,7 +11,7 @@ tags: Docker, Blog
 
 How did it start... for context:
 
->*Like a good chunk of 30yo, I bought a (couple of) Raspberry without knowing what to do with it...
+>*Like a good chunk of 30yo, I bought a (couple of) Raspberry without knowing what to do with it...*
 
 >*After installing a PKI and OpenVPN manually on a Raspberry Pi 4, I've been wanting a more flexible way to install/remove/update stuff on it... Containers looked like the way to go... but what if I want to run many things? That'd be fun to have a cluster of Raspberry Pi... which led me to find the Turing Pi 2 cluster board. And as I researched what people usually deploy on Raspberry clusters, I kept seeing the Home Assistant logo...*
 
