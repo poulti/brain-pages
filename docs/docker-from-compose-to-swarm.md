@@ -20,15 +20,20 @@ While waiting for the Turing Pi 2 to release, I thought I would run the containe
 
 ### A first docker compose, running on windows / docker desktop 
 
-So I started creating a docker compose file, with just Home Assistant to begin with, and a Zonoff USB Zigbee dongle
+So I started creating a docker compose file, with just Home Assistant to begin with. That's pretty simple at that stage, you can find examples of docker compose file on the official website.
 
-Simple container, local bind
+??? bug "TODO"
+    Simple container, local bind
 
-- TODO: example of old dockerfile, with 1 or 2 container: homeassistant, and zigbee2mqtt?
-- 
+...then wanted to add Zigbee capability, with a £15 Zonoff USB Zigbee dongle I just bought:
+
+??? bug "TODO"
+    example of old dockerfile, with 1 or 2 container: homeassistant, mosquitto and zigbee2mqtt?
+
 Adding USB... Leading to USBIP
 
-- TODO: need to pass the USB to WSL/Linux
+??? bug "TODO"
+    need to pass the USB to WSL/Linux
 - 
 Then needing to install a distro in the WSL2 (why?)
 
