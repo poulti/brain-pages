@@ -34,8 +34,9 @@ Adding USB... Leading to USBIP
 
 ??? bug "TODO"
     need to pass the USB to WSL/Linux
-- 
-Then needing to install a distro in the WSL2 (why?)
+  
+
+Then needing to install a linux distribution in the WSL2 (for some commands for USB2IP?)
 
 - In BIOS, turn on VT-x
 - In a cmd or powershell run as admin:
