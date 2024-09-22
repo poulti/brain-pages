@@ -27,7 +27,7 @@ So I started creating a docker compose file, with just Home Assistant to begin w
 ??? bug "TODO"
     Simple container, local bind
 
-...then wanted to add Zigbee capability, with a £15 Zonoff USB Zigbee dongle I just bought:
+...then wanted to add Zigbee capability, with a £15 Zonoff USB Zigbee dongle I bought on Amazon:
 
 ??? bug "TODO"
     example of old dockerfile, with 1 or 2 container: homeassistant, mosquitto and zigbee2mqtt?
