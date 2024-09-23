@@ -24,8 +24,40 @@ While waiting for the Turing Pi 2 to release, I thought I would run the containe
 
 So I started creating a docker compose file, with just Home Assistant to begin with. That's pretty simple at that stage, you can find examples of docker compose file on the official website.
 
-??? bug "TODO"
-    Simple container, local bind
+```yaml
+version: '3.9'
+
+services:
+  homeassistant:
+    container_name: homeassistant
+    hostname: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    restart: always
+    ports:
+      - "8123:8123/tcp"
+    environment:
+      - TZ=Europe/London
+    volumes:
+      - hass-config:/config
+      - /etc/localtime:/etc/localtime:ro
+    # devices:
+    #   - /dev/ttyACM0:/dev/rflink
+    healthcheck:
+      test: curl --fail http://localhost:8123 || exit 1
+      interval: 60s
+      retries: 5
+      start_period: 60s
+      timeout: 10s
+
+volumes:
+  hass-config:
+    driver: local
+    driver_opts:
+      type: none
+      device: D:\HomeAssistant\hass\config
+      o: bind
+```
+
 
 ...then wanted to add Zigbee capability, with a £15 Zonoff USB Zigbee dongle I bought on Amazon:
 
