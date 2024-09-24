@@ -58,6 +58,11 @@ volumes:
       o: bind
 ```
 
+If you are not familiar with a docker compose file here are the main things to know:
+- Services: this 
+  - 
+- volumes: ...
+  - configured to map (bind) a folder to ...
 
 ...then wanted to add Zigbee capability, with a £15 Zonoff USB Zigbee dongle I bought on Amazon:
 
