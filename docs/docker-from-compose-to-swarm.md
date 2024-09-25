@@ -22,7 +22,8 @@ While waiting for the Turing Pi 2 to release, I thought I would run the containe
 
 ### A first docker compose, running on windows / docker desktop 
 
-So I started creating a docker compose file, with just Home Assistant to begin with. That's pretty simple at that stage, you can find examples of docker compose file on the official website.
+So I started creating a docker compose file to run on Docker for Windows, with just Home Assistant to begin with. That's pretty simple at that stage, you can find examples of docker compose file on the official website.
+Below is the simplified copy of one of the first compose file I used:
 
 ```yaml
 version: '3.9'
