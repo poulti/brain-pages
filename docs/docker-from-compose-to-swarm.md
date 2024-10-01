@@ -58,11 +58,10 @@ volumes:
       o: bind
 ```
 
-If you are not familiar with a docker compose file here are the main things to know:
-- Services: this 
-  - 
-- volumes: ...
-  - configured to map (bind) a folder to ...
+If you are not familiar with a docker compose file here are the main things to know about the sections:
+- ``services``: this where you declare the "machine" (container) and detail settings 
+- ``volumes``: this is the configuration of storage volumes for the container. The point is to store your custom config for the machine somewhere else to be able to back it up
+  - In this Windows hosted container, I configured the storage to map (bind) the volume named `hass-config` to a local folder on my Windows machine, at ``D:\HomeAssistant\hass\config``
 
 ...then wanted to add Zigbee capability, with a £15 Zonoff USB Zigbee dongle I bought on Amazon:
 
