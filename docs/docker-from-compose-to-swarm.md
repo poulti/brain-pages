@@ -64,7 +64,7 @@ volumes:
 >- ``services``: this where you declare the "machine" (container) and detail settings 
 >
 >- ``volumes``: this is the configuration of storage volumes for the container. The point is to store your custom config for the machine outside the container, to be able to back it up and restart the container in the same state.
->    - In this Windows hosted container, I configured the storage to map (bind) the volume named `hass-config` to a local folder on my Windows machine, at ``D:\HomeAssistant\hass\config``
+>    * In this Windows hosted container, I configured the storage to map (bind) the volume named `hass-config` to a local folder on my Windows machine, at ``D:\HomeAssistant\hass\config``
 
 ...then wanted to add Zigbee capability, with a £15 Zonoff USB Zigbee dongle I bought on Amazon:
 
