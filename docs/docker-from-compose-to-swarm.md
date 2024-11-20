@@ -70,6 +70,10 @@ volumes:
 
 Updated docker compose looked like this:
 
+```yaml
+Docker with home assistant, zigbee2mqtt and mosquitto
+```
+
 ??? bug "TODO"
     example of old docker compose, with 3 containers, and a device section: homeassistant, mosquitto and zigbee2mqtt?
 
