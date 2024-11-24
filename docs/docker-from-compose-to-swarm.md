@@ -41,14 +41,6 @@ services:
     volumes:
       - hass-config:/config
       - /etc/localtime:/etc/localtime:ro
-    # devices:
-    #   - /dev/ttyACM0:/dev/rflink
-    healthcheck:
-      test: curl --fail http://localhost:8123 || exit 1
-      interval: 60s
-      retries: 5
-      start_period: 60s
-      timeout: 10s
 
 volumes:
   hass-config:
@@ -71,11 +63,76 @@ volumes:
 Updated docker compose looked like this:
 
 ```yaml
-Docker with home assistant, zigbee2mqtt and mosquitto
+version: '3.9'
+
+services:
+  homeassistant:
+    container_name: homeassistant
+    hostname: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    restart: always
+    ports:
+      - "8123:8123/tcp"
+    environment:
+      - TZ=Europe/London
+    volumes:
+      - hass-config:/config
+      - /etc/localtime:/etc/localtime:ro
+
+  mosquitto:
+    container_name: mosquitto
+    hostname: mosquitto
+    image: eclipse-mosquitto
+    restart: always
+    ports:
+      - 1883:1883
+      - 9001:9001
+    environment:
+      - TZ=Europe/London
+    volumes:
+      - mosquitto-config:/mosquitto:rw
+
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    hostname: zigbee2mqtt
+    image: koenkk/zigbee2mqtt
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      - TZ=Europe/London
+    volumes:
+      - zigbee2mqtt-data:/app/data
+    devices:
+      - /dev/ttyUSB0:/dev/zigbee
+
+
+volumes:
+  hass-config:
+    driver: local
+    driver_opts:
+      type: none
+      device: D:\HomeAssistant\hass\config
+      o: bind
+  mosquitto-config:
+    driver: local
+    driver_opts:
+      type: none
+      device: D:\HomeAssistant\mosquitto
+      o: bind
+  zigbee2mqtt-data:
+    driver: local
+    driver_opts:
+      type: none
+      device: D:\HomeAssistant\zigbee2mqtt-data
+      o: bind
 ```
 
 ??? bug "TODO"
-    example of old docker compose, with 3 containers, and a device section: homeassistant, mosquitto and zigbee2mqtt?
+    Make a comment on the addition of the below... hence the need to pass the USB from windows to the WSL
+    devices:
+      - /dev/ttyUSB0:/dev/zigbee
+
 
 Adding USB... Leading to USBIP
 
