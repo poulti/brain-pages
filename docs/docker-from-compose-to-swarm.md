@@ -128,13 +128,19 @@ volumes:
       o: bind
 ```
 
-??? bug "TODO"
-    Make a comment on the addition of the below... hence the need to pass the USB from windows to the WSL
+Notice the addition of the snippet below, to reference the device (USD dongle) used by Zigbee2MQTT container?
+```yaml
+  zigbee2mqtt:
+  (...)
     devices:
       - /dev/ttyUSB0:/dev/zigbee
+```
 
+As the containers are actually run in Windows Subsystem for Linux (aka WSL, a linux environment in Windows OS) the ``devices`` reference above needs to give the path to a USB device known to the WSL... so how do you get a USB device connected to your Windows machine, to the WSL?
 
-Adding USB... Leading to USBIP
+Enters USBIP-WIN: "Windows software for sharing locally connected USB devices to other machines, including Hyper-V guests and WSL 2." according to [its github](https://github.com/dorssel/usbipd-win).
+
+Notice it says "WSL 2"?
 
 ??? bug "TODO"
     need to pass the USB to WSL/Linux
