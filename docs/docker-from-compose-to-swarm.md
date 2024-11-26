@@ -128,7 +128,7 @@ volumes:
       o: bind
 ```
 
-Notice the addition of the snippet below, to reference the device (USD dongle) used by Zigbee2MQTT container?
+Notice the addition of the USB device used by Zigbee2MQTT container?
 ```yaml
   zigbee2mqtt:
   (...)
@@ -140,7 +140,7 @@ As the containers are actually run in Windows Subsystem for Linux (aka WSL, a li
 
 Enters USBIP-WIN: "Windows software for sharing locally connected USB devices to other machines, including Hyper-V guests and WSL 2." according to [its github](https://github.com/dorssel/usbipd-win).
 
-Notice it says "WSL 2"?
+Wait, it says "WSL 2"?
 
 ??? bug "TODO"
     need to pass the USB to WSL/Linux
