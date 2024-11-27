@@ -140,13 +140,7 @@ As the containers are actually run in Windows Subsystem for Linux (aka WSL, a li
 
 Enters USBIP-WIN: "Windows software for sharing locally connected USB devices to other machines, including Hyper-V guests and WSL 2." according to [its github](https://github.com/dorssel/usbipd-win).
 
-Wait, it says "WSL 2"?
-
-??? bug "TODO"
-    need to pass the USB to WSL/Linux
-  
-
-Then needing to install a linux distribution in the WSL2 (for some commands for USB2IP?)
+Wait, it says "WSL 2"? So I looked up how to switch to WSL 2 and install a linux distribution in it. Here are some of my notes on the process:
 
 - In BIOS, turn on VT-x
 - In a cmd or powershell run as admin:
@@ -168,11 +162,8 @@ Then needing to install a linux distribution in the WSL2 (for some commands for 
   ```
   wsl --install -d ubuntu
   ```
-- Install Ansible:
-  ```
-  sudo apt-get update && sudo apt-get install -y python3-dev python3-pip libyaml-dev libffi-dev && sudo pip3 install ansible
-  ```
 
+At that stage .... TODO
 
 ### Adding more container to compose... and more complexity
 
