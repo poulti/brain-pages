@@ -163,7 +163,7 @@ Wait, it says "WSL 2"? So I looked up how to switch to WSL 2 and install a linux
   wsl --install -d ubuntu
   ```
 
-At that stage .... TODO
+At that stage we have the foundation of home assistant and docker services, and ZigBee network connected. Time to expand to even more services!
 
 ### Adding more container to compose... and more complexity
 
