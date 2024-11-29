@@ -167,6 +167,12 @@ At that stage we have the foundation of home assistant and docker services, and 
 
 ### Adding more container to compose... and more complexity
 
+From here, everything is possible - without a specific order, I added a variety of things:
+- An RFlink device (USB) to access weather stations signals
+- A back up service for my configuration (duplicati)
+- A reverse proxy for external access
+...
+
 ??? bug "TODO" 
     Architecture diagramme
 
