@@ -182,21 +182,24 @@ From here, everything is possible - without a specific order, I added a variety 
 
 ``` mermaid
 graph BT
-  subgraph Docker
+  subgraph WIN[Software]
     direction BT
-    d[Docker Deamon] --> c1[Home Assistant]
-    d --> c2[Frigate]
-    d --> c3[...]
-    d --> c4[Zigbee2MQTT]
-    d --> c5[Mosquitto]
+    subgraph Docker[WSL2]
+      direction BT
+      d[Docker Deamon] --> c1[Home Assistant]
+      d --> c2[Frigate]
+      d --> c3[...]
+      d --> c4[Zigbee2MQTT]
+      d --> c5[Mosquitto]
+    end
+    USBIP --> Docker
+    Windows --> USBIP
   end
-  WSL2 --> Docker
-  WIN[Windows + USBIP] --> WSL2
   Hardware --> WIN
-  subgraph Hardware
+  subgraph Hardware[Desktop Hardware]
     direction LR
-    Desktop --> ZigBee
-    Desktop --> RFLink
+    ZigBee --> USB
+    RFLink --> USB
   end
 ```
 
