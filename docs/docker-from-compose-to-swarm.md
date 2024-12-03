@@ -172,6 +172,7 @@ From here, everything is possible - without a specific order, I added a variety 
 - An RFlink device (USB) to access weather stations signals
 - A back up service for my configuration (duplicati)
 - A reverse proxy for external access
+- A Network Video Recording (Frigate) to manage cameras
 ...
 
 ??? bug "TODO" 
