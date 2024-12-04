@@ -205,14 +205,13 @@ graph BT
 ```
 
 
-### Thinking of the migration to a cluster... (too soon to dive in this?)
+### Thinking of the migration to a cluster... (Docker Swarm)
 
-Will have to install docker and configure many compute modules. Don't really want to do that manually and miss anything... Here comes Ansible 
-??? bug "TODO"
-    Ansible for setting up the Swarm Mode
-My playbook is based on Jeff Geerling's Turing Pi 2, where I swapped K3s for Docker Swarm Mode: https://github.com/geerlingguy/turing-pi-2-cluster
+From here, I still didn't have my Turing Pi and many nodes, but I wanted to get ready for it. 
+Actually, quick research taught me it's possible to run the same containers in Swarm mode on 1 node.
+Docker Swarm mode is designed to manage multiple machines (called nodes) each having their own docker instance, and distributing the containers between the machines. So it actually works with only 1 machine, but you don't get the redundancy of multiple node of course.
 
-## 1. Looking at Swarm Mode: many questions came up...
+## 1. Looking at Swarm Mode: what changes?
 
 Questions I had when thinking of the migration to Swarm Mode:
 
@@ -361,6 +360,13 @@ Source and more details: https://github.com/Koenkk/zigbee2mqtt/issues/2049
 >If you have multiple hosts, it means each host will create its own folder on demand.
 
   - TODO: use NFS volumes
+## 2. Cluster configuration and deployment (Ansible)
+
+Will have to install docker and configure many compute modules. Don't really want to do that manually and miss anything... Here comes Ansible 
+??? bug "TODO"
+    Ansible for setting up the Swarm Mode
+My playbook is based on Jeff Geerling's Turing Pi 2, where I swapped K3s for Docker Swarm Mode: https://github.com/geerlingguy/turing-pi-2-cluster
+
 
 ## Carve out portainer from the compose file
 
