@@ -220,7 +220,7 @@ Questions I had when thinking of the migration to Swarm Mode:
 - how to access **USB devices** in swarm mode?
 - how to **restart** malfunctioning containers/services? (like self-healing from k8s)
 
-Didn't find very direct answers so I digged up a bit more...
+TODO: change this to transition to answers --> Didn't find very direct answers so I digged up a bit more...
 
 ### What needs to be changed in my compose file to migrate so swarm mode?
 
