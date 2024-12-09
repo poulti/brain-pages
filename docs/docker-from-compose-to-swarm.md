@@ -212,16 +212,16 @@ Actually, quick research taught me it's possible to run the same containers in S
 Docker Swarm mode is designed to manage multiple machines (called nodes) each having their own docker instance, and distributing the containers between the machines. So it actually works with only 1 machine, but you don't get the redundancy of multiple node of course.
 The other good news is the switch to Swarm Mode (in Docker) is reversible: you can switch to Swarm Mode (with one machine) and "exit" Swarm Mode to return to the "normal" compose file reference - so you don't risk much in preparing files/config for Swarm.
 
-## 1. Looking at Swarm Mode: what changes?
+## 1. Looking at Swarm Mode: what changes vs Compose?
 
-Questions I had when thinking of the migration to Swarm Mode:
+A couple of questions came up when thinking of the migration to Swarm Mode:
 
 - how to deploy a **compose file** in swarm mode?
 - how to access **bound folders** in swarm mode?
 - how to access **USB devices** in swarm mode?
 - how to **restart** malfunctioning containers/services? (like self-healing from k8s)
 
-TODO: change this to transition to answers --> Didn't find very direct answers so I digged up a bit more...
+Let's go through these questions one by one
 
 ### What needs to be changed in my compose file to migrate so swarm mode?
 
