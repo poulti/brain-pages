@@ -223,6 +223,7 @@ A couple of questions came up when thinking of the migration to Swarm Mode:
 
 Let's go through these questions one by one
 
+
 ### What needs to be changed in my compose file to migrate so swarm mode?
 
 Impact of swarm mode on usual sections from compose
@@ -242,6 +243,17 @@ This is not a comprehensive list (refer to the compose reference for that), but 
     - https://docs.frigate.video/installation/#calculating-required-shm-size
     ??? bug "TODO"
         what impacts on Frigate --> workaround with a volume tmpfs targeted to /dev/shm
+
+### how to access **bound folders** in swarm mode? (Volumes and storage)
+
+[Volumes in swarm](https://stackoverflow.com/questions/55288453/docker-volume-in-swarm)
+
+>A volume is a way for docker to describe a mount point. When a volume get created, it doesn't actually get physically mounted anywhere until a container needs it.
+>So if you have a docker swarm and multiple nodes, when you create a volume, essentially the description of the volume gets replicated on each nodes but nothing else happens.
+>When a container boot up, it will try to mount a volume on the host its being booted up. If the volume wasn't physically present it will get mounted/created for the first time and reused there. So if you're using the local driver, it will essentially create the folder and that's it.
+>If you have multiple hosts, it means each host will create its own folder on demand.
+
+  - TODO: use NFS volumes
 
 ### How to pass devices in Swarm Mode?
 
@@ -351,16 +363,7 @@ Example with my zigbee USB stick
 
 Source and more details: https://github.com/Koenkk/zigbee2mqtt/issues/2049
 
-### Volumes and storage
 
-[Volumes in swarm](https://stackoverflow.com/questions/55288453/docker-volume-in-swarm)
-
->A volume is a way for docker to describe a mount point. When a volume get created, it doesn't actually get physically mounted anywhere until a container needs it.
->So if you have a docker swarm and multiple nodes, when you create a volume, essentially the description of the volume gets replicated on each nodes but nothing else happens.
->When a container boot up, it will try to mount a volume on the host its being booted up. If the volume wasn't physically present it will get mounted/created for the first time and reused there. So if you're using the local driver, it will essentially create the folder and that's it.
->If you have multiple hosts, it means each host will create its own folder on demand.
-
-  - TODO: use NFS volumes
 ## 2. Cluster configuration and deployment (Ansible)
 
 Will have to install docker and configure many compute modules. Don't really want to do that manually and miss anything... Here comes Ansible 
