@@ -246,6 +246,7 @@ This is not a comprehensive list (refer to the compose reference for that), but 
 
 ### how to access **bound folders** in swarm mode? (Volumes and storage)
 
+So in swarm, you can't bind a local folder, because you can't predict where a given container will be located.
 [Volumes in swarm](https://stackoverflow.com/questions/55288453/docker-volume-in-swarm)
 
 >A volume is a way for docker to describe a mount point. When a volume get created, it doesn't actually get physically mounted anywhere until a container needs it.
