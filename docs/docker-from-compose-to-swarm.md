@@ -247,6 +247,10 @@ This is not a comprehensive list (refer to the compose reference for that), but 
 ### how to access **bound folders** in swarm mode? (Volumes and storage)
 
 So in swarm, you can't bind a local folder, because you can't predict where a given container will be located.
+I found two approaches that seem to mitigate this:
+- Have a filesystem that replicates the content over all nodes (ie. each Raspberry Pi or RK1 modules would have a copy of the entire dataset). Sounds great for data access performance, but obviously it requires enough space on each node and as the lab grows up, will it scale on those poor little 32GB sd cards?
+- Or access the data from a network share - which means having all the date in 1 place (one node, or somewhere else...), open it to be shared on the network (eg. NFS) and access it from the nodes. One way to configure this on the container side is to use volumes, see below the description
+
 [Volumes in swarm](https://stackoverflow.com/questions/55288453/docker-volume-in-swarm)
 
 >A volume is a way for docker to describe a mount point. When a volume get created, it doesn't actually get physically mounted anywhere until a container needs it.
