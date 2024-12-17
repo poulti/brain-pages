@@ -246,7 +246,7 @@ This is not a comprehensive list (refer to the compose reference for that), but 
 
 ### how to access **bound folders** in swarm mode? (Volumes and storage)
 
-So in swarm, you can't bind a local folder, because you can't predict where a given container will be located.
+In swarm mode, you can't bind a local folder, because you can't predict on which node a given container will be located. You could force the assignment of a container to a given node with docker constraints and labels, but that would defeat the purpose of running a cluster (ie. having container able to move around based on the availability of the underlying machines (node)).
 
 I found two approaches that seem to mitigate this:
 
