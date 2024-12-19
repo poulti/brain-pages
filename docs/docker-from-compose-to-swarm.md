@@ -260,7 +260,32 @@ I found two approaches that seem to mitigate this:
 >When a container boot up, it will try to mount a volume on the host its being booted up. If the volume wasn't physically present it will get mounted/created for the first time and reused there. So if you're using the local driver, it will essentially create the folder and that's it.
 >If you have multiple hosts, it means each host will create its own folder on demand.
 
-  - TODO: use NFS volumes
+Practically, I would use volumes in the compose file (which was already the case) and replace the "bound" volumes with NFS ones
+
+For instance, the first volume in the last compose
+```yaml
+(...)
+volumes:
+  hass-config:
+    driver: local
+    driver_opts:
+      type: none
+      device: D:\HomeAssistant\hass\config
+      o: bind
+(...)
+```
+Would look something like:
+```yaml
+(...)
+volumes:
+  hass-config:
+    driver: local
+    driver_opts:
+      type: nfs4
+      o: nfsvers=4,addr=<IP-OF-THE-NFS-SERVER>,nolock,rw,sync
+      device: ":/<nfssharepath>/HomeAssistant/hass/config"
+(...)
+```
 
 ### How to pass devices in Swarm Mode?
 
