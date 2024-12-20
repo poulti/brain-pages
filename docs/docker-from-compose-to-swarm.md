@@ -262,7 +262,7 @@ I found two approaches that seem to mitigate this:
 
 Practically, I would use volumes in the compose file (which was already the case) and replace the "bound" volumes with NFS ones
 
-For instance, the first volume in the last compose
+For instance, the first volume in the compose file was:
 ```yaml
 (...)
 volumes:
@@ -274,7 +274,7 @@ volumes:
       o: bind
 (...)
 ```
-Would look something like:
+...and would now look something like:
 ```yaml
 (...)
 volumes:
