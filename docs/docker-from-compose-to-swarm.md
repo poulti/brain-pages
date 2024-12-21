@@ -291,9 +291,9 @@ volumes:
 
 Couple things to deal with:
 
-1. Problem: by construction, services in a swarm can be run on any node... which will not work if we need to access a specific USB device. Can't wait to be lucky and be on the right node...
-   Solution:
-    - For this we are going to use the swarm specific section "deploy" to indicate a constraints (=rule) for the service needing the USB device. 
+1. Problem: by construction, services in a swarm can be run on any node... which will not work if we need to access a specific USB device plugged into it. Can't wait to be lucky and be on the right node...
+  Solution:
+    - For this we are going to use the swarm specific section "deploy" to indicate a constraints (=rule) for the service needing the USB device. It requires "tagging" the node with labels in the first place, then using docker deploy constraints. 
     - In the example below, the constraint says the node should have a label named "usb2" with a value equal to "true".
     ```yaml
     services:
