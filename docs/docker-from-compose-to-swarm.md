@@ -59,6 +59,7 @@ volumes:
   >* In this Windows hosted container, I configured the storage to map (bind) the volume named `hass-config` to a local folder on my Windows machine, at ``D:\HomeAssistant\hass\config``
 
 ...but the point is to automate and control "things" remotely, so I added a Zigbee controller, buying a £15 Zonoff USB Zigbee dongle on Amazon. To make it work, decided to use zigbee2mqtt as the service to connect with it, and hence I needed an MQTT server (eg mosquitto) in between home assistant and zigbee2mqtt.
+MQTT is a communication protocol commonly used in industrial environment.
 
 Updated docker compose looked like this:
 
