@@ -227,7 +227,8 @@ Let's go through these questions one by one
 
 ### What needs to be changed in my compose file to migrate so swarm mode?
 
-Impact of swarm mode on usual sections from compose
+Docker compose reference is slightly different for swarm mode, i.e. some keywords are ignored or not working in swarm mode.
+
 This is not a comprehensive list (refer to the compose reference for that), but that's all the things I had to tinker with in my compose file to make it swarm friendly:
 
 - ``privileged: true`` 
