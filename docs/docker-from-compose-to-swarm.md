@@ -464,7 +464,7 @@ And I added the following volumes to the ESPHome Docker service in docker-compos
 
 ## Adding a macvlan network in Docker Swarm for Traefik to see origin IP
 
-Initial problem: I switch Traefik as a reverse proxy (from nginx), reinstalled/reconfigured crowdsec... only to realise in Traefik ``access.log`` that all "external IP" (check it's actually the name in traefik) where all **10.0.0.2**, even when accessing my instance from Internet (from my router forwarding to Traefik). This is the IP of a Docker router part of the ``ingress`` network (one of the default network created in swarm). 
+Initial problem: I switch Traefik as a reverse proxy (from nginx), reinstalled/reconfigured crowdsec... only to realise in Traefik ``access.log`` that all "external IP" (check it's actually the name in traefik) where all **10.0.0.2**, even when accessing my instance from Internet (from my router forwarding to Traefik). This is the IP of a Docker router part of the ``ingress`` network (one of the default network created in swarm). Basically, traefik can see IPs from docker network but not the actual public IPs from clients...
 However, that's the IP field used by crowdsec to decide if it should ban or let through the proxy. So I needed to give Traefik access to the real IP, and that's where the macvlan driver from Docker network comes into play.
 
 The [macvlan driver](https://docs.docker.com/network/drivers/macvlan/) allows the container to display a MAC address to your home network (eg. your 192.168.0.0/24) and virtually be part of it.
