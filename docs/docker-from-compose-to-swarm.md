@@ -528,7 +528,7 @@ And TADA, my access.log change from having only 10.0.0.2 IPs to displaying beaut
 
 ## 2. How to actually use the updated compose file in Swarm Mode? Testing...
 
-Can actually switch to swarm, test deploying a stack -- and if it doesn't work, remove it and put your compose back up. No need to exit/delete the swarm
+Before switching to the cluster, you can test the updated compose file for Swarm Mode, by deploying the stack on a Swarm of 1 node. And if it doesn't work, remove it and put your compose back up. No need to exit/delete the swarm
 
 - Comment the network part of docker compose file
 - Then:
