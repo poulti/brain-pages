@@ -11,19 +11,19 @@ tags: Docker, Blog
 
 How did it start... for context:
 
->*Like a good chunk of 30yo, I bought a (couple of) Raspberry without knowing what to do with it...*
+>*Like a good chunk of 30yo+, I bought a (couple of) Raspberry without knowing what to do with it...*
 
->*After installing a PKI and OpenVPN manually on a Raspberry Pi 4 (and that's a lot of commands), I've been wanting a more flexible way to install/remove/update stuff on it - particularly because I hate having apps installed directly on the OS, and the thought of needed to reinstall and configure everything should I need to replace/upgrade the hardware. Enter **containers**: perfect, a packaged app I can deploy with 1 action/no install, and when it stops, it (almost) doesn't leave any things to clean up.
+>*After installing a PKI and OpenVPN manually on a Raspberry Pi 4 (and that's a lot of commands), I've been wanting a more flexible way to install/remove/update stuff on it - particularly because I hate having apps installed directly on the OS, and the thought of needing to reinstall and configure everything should I need to replace/upgrade the hardware. Enter **containers**: perfect, a packaged app I can deploy with 1 action/no install, and when it stops, it (almost) doesn't leave any things to clean up.
 
 > But what if I want to run many things? That'd be fun to have a cluster of Raspberry Pi... which led me to find the Turing Pi 2 cluster board. And as I researched what people usually deploy on Raspberry clusters, I kept seeing the Home Assistant logo...*
 
 >*So I looked at it up close and started running a Home Assistant instance.
-While waiting for the Turing Pi 2 to release, I thought I would run the containers directly on my desktop using Docker Compose. And if I did it right, I would "just" have to move my containers to the new hardware once ready, right?... well that takes a couple precautions*
+While waiting for the Turing Pi 2 to release, I thought I would run the containers directly on my desktop using Docker Compose. And if I did it right, I would "just" have to move my containers to the new hardware once ready, right?... well, not that simple unfortunately...*
 
 ### A first docker compose, running on windows / docker desktop 
 
 So I started creating a docker compose file to run on Docker for Windows, with just Home Assistant to begin with. That's pretty simple at that stage, you can find examples of docker compose file on the official website.
-Below is the simplified copy of one of the first compose file I used:
+Below is the simplified copy of one of the first compose file:
 
 ```yaml
 version: '3.9'
