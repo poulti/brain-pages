@@ -168,18 +168,13 @@ At that stage we have the foundation of home assistant and docker services, and 
 
 ### Adding more container to compose... and more complexity
 
-From here, everything is possible - without a specific order, I added a variety of things:
+From here, everything is possible - without a specific order, you can add a variety of things:
 
-- An RFlink device (USB) to access weather stations signals
-- A back up service for my configuration (duplicati)
-- A reverse proxy for external access
+- An RFlink device (USB) to access weather stations signals (radio frequencies on 433MHz)
+- A back up service for the whole configuration (eg. duplicati)
+- A reverse proxy for external access (Traefik or nginx)
 - A Network Video Recording (Frigate) to manage cameras
 ...
-
-??? bug "TODO" 
-    Architecture diagramme
-
-    Specific features used
 
 
 ``` mermaid
