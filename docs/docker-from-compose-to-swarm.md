@@ -141,7 +141,7 @@ As the containers are actually run in Windows Subsystem for Linux (aka WSL, a li
 
 Enters USBIP-WIN: "Windows software for sharing locally connected USB devices to other machines, including Hyper-V guests and WSL 2." according to [its github](https://github.com/dorssel/usbipd-win).
 
-Wait, it says "WSL 2"? So I looked up how to switch to WSL 2 and install a linux distribution in it. Here are some of my notes on the process:
+Wait, it says "WSL 2"? By default, Windows uses WSL "1", so you'll find below how to switch to WSL 2 and install a linux distribution in it. Here are some of notes on the process:
 
 - In BIOS, turn on VT-x
 - In a cmd or powershell run as admin:
@@ -164,7 +164,7 @@ Wait, it says "WSL 2"? So I looked up how to switch to WSL 2 and install a linux
   wsl --install -d ubuntu
   ```
 
-At that stage we have the foundation of home assistant and docker services, and ZigBee network connected. Time to expand to even more services!
+At that stage you have the foundation of home assistant and docker services, and ZigBee network connected. Time to expand to even more services!
 
 ### Adding more container to compose... and more complexity
 
