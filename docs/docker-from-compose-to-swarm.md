@@ -212,13 +212,29 @@ The other good news is the switch to Swarm Mode (in Docker) is reversible: you c
 
 A couple of questions came up when thinking of the migration to Swarm Mode:
 
-- how to deploy a **compose file** in swarm mode?
-- how to access **bound folders** in swarm mode?
-- how to access **USB devices** in swarm mode?
-- how to **restart** malfunctioning containers/services? (like self-healing from k8s)
+- How to deploy a **compose file** in swarm mode?
+- How to access **bound folders** in swarm mode?
+- How to access **USB devices** in swarm mode?
+- How to **restart** malfunctioning containers/services? (like self-healing from k8s)
 
 Let's go through these questions one by one
 
+
+### How to deploy a **compose file** in swarm mode?
+
+Before switching to the cluster, you can test the updated compose file for Swarm Mode, by deploying the stack on a Swarm of 1 node. And if it doesn't work, remove the stack and compose up instead. No need to exit/delete the swarm to use the regular compose up.
+
+- To deploy the compose file on a Swarm:
+  ```
+  docker stack deploy --compose-file docker-compose.yaml homeassistant
+  ```
+
+...and once finished
+
+- To stop it:
+  ```
+  docker stack rm homeassistant
+  ```
 
 ### What needs to be changed in my compose file to migrate so swarm mode?
 
@@ -521,20 +537,6 @@ And TADA, my access.log change from having only 10.0.0.2 IPs to displaying beaut
 - [ ] Connect USB devices to the right USB
 - [ ] Change the port forwarding from external IP
 
-## 2. How to actually use the updated compose file in Swarm Mode? Testing...
-
-Before switching to the cluster, you can test the updated compose file for Swarm Mode, by deploying the stack on a Swarm of 1 node. And if it doesn't work, remove the stack and compose up instead. No need to exit/delete the swarm to use the regular compose up.
-
-- Comment the network part of docker compose file
-- To deploy the compose file on a Swarm:
-  ```
-  docker stack deploy --compose-file docker-compose.yaml homeassistant
-  ```
-- And to stop it:
-  ```
-  docker stack rm homeassistant
-  ```
-- Uncomment the network section
 
 ### Test embedding image
 
