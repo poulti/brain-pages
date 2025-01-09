@@ -206,7 +206,7 @@ graph BT
 From here, I still didn't have my Turing Pi and many nodes, but I wanted to get ready for it. 
 Actually, quick research taught me it's possible to run the same containers in Swarm mode on 1 node.
 Docker Swarm mode is designed to manage multiple machines (called nodes) each having their own docker instance, and distributing the containers between the machines. So it actually works with only 1 machine, but you don't get the redundancy of multiple node of course.
-The other good news is the switch to Swarm Mode (in Docker) is reversible: you can switch to Swarm Mode (with one machine) and "exit" Swarm Mode to return to the "normal" compose file reference - so you don't risk much in preparing files/config for Swarm.
+The other good news is the switch to Swarm Mode (in Docker) is reversible: you can switch to Swarm Mode (with one machine) and "exit" Swarm Mode to return to the "normal" compose file reference - so you don't risk much in preparing files/config for Swarm. And you'll see later that you can leave your Swarm Mode on and still "compose up" on the same machine.
 
 ## 1. Looking at Swarm Mode: what changes vs Compose?
 
