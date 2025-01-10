@@ -236,7 +236,7 @@ Before switching to the cluster, you can test the updated compose file for Swarm
   docker stack rm homeassistant
   ```
 
-### What needs to be changed in my compose file to migrate so swarm mode?
+#### But what needs to be changed in my compose file to migrate so swarm mode?
 
 Docker compose reference is slightly different for swarm mode, i.e. some keywords are ignored or not working in swarm mode.
 
@@ -248,16 +248,18 @@ This is not a comprehensive list (refer to the compose reference for that), but 
     - Ignored in Swarm. Not an issue as swarm services will be destroyed / recreated as necessary (to reach the constraints)
 - ``container_name:`` 
     - Ignored in swarm. Doesn't really matter anyway?
-- ``device:`` 
-    - Ignored in swarm. Ok this one is an issue, particularly with our USB devices needed to communicate with the real world (Zigbee bridge, RFlink or Coral accelerator etc.)
 - ``volume / binds (inline):`` 
     - Similar to the USB devices, you can't mount bind on a node, while services are moving potentially on any node of the cluster.
+- ``device:`` 
+    - Ignored in swarm. Ok this one is an issue, particularly with our USB devices needed to communicate with the real world (Zigbee bridge, RFlink or Coral accelerator etc.)
 - ``shm_size:``
     - https://docs.frigate.video/installation/#calculating-required-shm-size
     ??? bug "TODO"
         what impacts on Frigate --> workaround with a volume tmpfs targeted to /dev/shm
 
-### how to access **bound folders** in swarm mode? (Volumes and storage)
+The next sections focus on the volume / folders access in swarm, then on how to passe a USB device.
+
+### How to access **bound folders** in swarm mode? (Volumes and storage)
 
 In swarm mode, you can't bind a local folder, because you can't predict on which node a given container will be located. You could force the assignment of a container to a given node with docker constraints and labels, but that would defeat the purpose of running a cluster (ie. having container able to move around based on the availability of the underlying machines (node)).
 
