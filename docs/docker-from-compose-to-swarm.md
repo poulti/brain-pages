@@ -302,7 +302,7 @@ volumes:
 (...)
 ```
 
-### How to pass devices in Swarm Mode?
+### How to access **USB devices** in swarm mode?
 
 Couple things to deal with:
 
