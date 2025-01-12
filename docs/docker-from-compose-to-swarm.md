@@ -236,7 +236,7 @@ Before switching to the cluster, you can test the updated compose file for Swarm
   docker stack rm homeassistant
   ```
 
-#### But what needs to be changed in my compose file to migrate so swarm mode?
+#### ...but the compose file doesn't work AS-IS in Swarm Mode! What needs to be changed in it to migrate to swarm mode?
 
 Docker compose reference is slightly different for swarm mode, i.e. some keywords are ignored or not working in swarm mode.
 
