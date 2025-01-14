@@ -13,7 +13,7 @@ How did it start... for context:
 
 >*Like a good chunk of 30yo+, I bought a (couple of) Raspberry without knowing what to do with it...*
 
->*After installing a PKI and OpenVPN manually on a Raspberry Pi 4 (and that's a lot of commands), I've been wanting a more flexible way to install/remove/update stuff on it - particularly because I hate having apps installed directly on the OS, and the thought of needing to reinstall and configure everything should I need to replace/upgrade the hardware. Enter **containers**: perfect, a packaged app I can deploy with 1 action/no install, and when it stops, it (almost) doesn't leave any things to clean up.
+>*After installing a PKI and OpenVPN manually on a Raspberry Pi 4 (and that's a lot of commands), I've been wanting a more flexible way to install/remove/update stuff on it - particularly because I hate having apps installed directly on the OS, and the thought of needing to reinstall and configure everything should I need to replace/upgrade the hardware. Enter **containers**: a packaged system/app I can deploy with 1 action/no install, and when it stops, it (almost) doesn't leave anything to clean up.
 
 > But what if I want to run many things? That'd be fun to have a cluster of Raspberry Pi... which led me to find the Turing Pi 2 cluster board. And as I researched what people usually deploy on Raspberry clusters, I kept seeing the Home Assistant logo...*
 
