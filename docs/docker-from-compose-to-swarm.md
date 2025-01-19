@@ -158,12 +158,14 @@ Wait, it says "WSL 2"? By default, Windows uses WSL "1", so you'll find below ho
   ```
   wsl --set-default-version 2
   ```
-- Download a distro, eg Ubuntu LTS, go to https://aka.ms/wslubuntu2204
-(Go to Microsoft Store app, and search Ubuntu, download)
-- Install the distro: 
+- Download a distro, eg Ubuntu 22.04 LTS, go to https://aka.ms/wslubuntu2204
+(Go to Microsoft Store app, and search Ubuntu, download), and open the .appbundle
+- Install the distro (not sure that step is necessary anymore if you opened the appbundle in the UI): 
   ```
   wsl --install -d ubuntu
   ```
+
+Then follow the steps to install USBIP-WIN from the github above.
 
 At that stage you have the foundation of home assistant and docker services, and ZigBee network connected. Time to expand to even more services!
 
