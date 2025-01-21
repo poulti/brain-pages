@@ -180,6 +180,8 @@ From here, everything is possible - without a specific order, you can add a vari
 ...
 
 
+For example, leading to a structure like this:
+
 ``` mermaid
 graph BT
   subgraph WIN[Software]
