@@ -213,7 +213,7 @@ Actually, quick research taught me it's possible to run the same containers in S
 Docker Swarm mode is designed to manage multiple machines (called nodes) each having their own docker instance, and distributing the containers between the machines. So it actually works with only 1 machine, but you don't get the redundancy of multiple node of course.
 The other good news is the switch to Swarm Mode (in Docker) is reversible: you can switch to Swarm Mode (with one machine) and "exit" Swarm Mode to return to the "normal" compose file reference - so you don't risk much in preparing files/config for Swarm. And you'll see later that you can leave your Swarm Mode on and still "compose up" on the same machine.
 
-## 1. Looking at Swarm Mode: what changes vs Compose?
+### Looking at Swarm Mode: what changes vs Compose?
 
 A couple of questions came up when thinking of the migration to Swarm Mode:
 
@@ -225,7 +225,7 @@ A couple of questions came up when thinking of the migration to Swarm Mode:
 Let's go through these questions one by one
 
 
-### How to deploy a **compose file** in swarm mode?
+## 1. How to deploy a **compose file** in swarm mode?
 
 Before switching to the cluster, you can test the updated compose file for Swarm Mode, by deploying the stack on a Swarm of 1 node. And if it doesn't work, remove the stack and compose up instead. No need to exit/delete the swarm to use the regular compose up.
 
@@ -241,7 +241,7 @@ Before switching to the cluster, you can test the updated compose file for Swarm
   docker stack rm homeassistant
   ```
 
-#### ...but the compose file doesn't work AS-IS in Swarm Mode! What needs to be changed to work with Swarm Mode?
+### ...but the compose file doesn't work AS-IS in Swarm Mode! What needs to be changed to work with Swarm Mode?
 
 Docker compose reference is slightly different for swarm mode, i.e. some keywords are ignored or not working in swarm mode.
 
@@ -264,7 +264,7 @@ This is not a comprehensive list (refer to the compose reference for that), but 
 
 The next sections focus on the volume / folders access in swarm, then on how to passe a USB device.
 
-### How to access **bound folders** in swarm mode? (Volumes and storage)
+## 2. How to access **bound folders** in swarm mode? (Volumes and storage)
 
 In swarm mode, you can't bind a local folder, because you can't predict on which node a given container will be located. You could force the assignment of a container to a given node with docker constraints and labels, but that would defeat the purpose of running a cluster (ie. having container able to move around based on the availability of the underlying machines (node)).
 
@@ -307,7 +307,7 @@ volumes:
 (...)
 ```
 
-### How to access **USB devices** in swarm mode?
+## 3. How to access **USB devices** in swarm mode?
 
 Couple things to deal with:
 
@@ -344,7 +344,7 @@ Couple things to deal with:
     - sudo mount -t cgroup -o devices none /sys/fs/cgroup/devices
 
 
-#### Create rules to mount the device as a volume
+### Create rules to mount the device as a volume
 The idea is as follows:
 
 1. The UDEV rule detects a USB device with a given vendor id and product id, then assigns it a name (symlink) and runs a 'docker-setup-*device*.sh' shell script.
@@ -416,7 +416,7 @@ Example with my zigbee USB stick
 Source and more details: https://github.com/Koenkk/zigbee2mqtt/issues/2049
 
 
-## 2. Cluster configuration and deployment (Ansible)
+## 4. Cluster configuration and deployment (Ansible)
 
 Will have to install docker and configure many compute modules. Don't really want to do that manually and miss anything... Here comes Ansible 
 ??? bug "TODO"
