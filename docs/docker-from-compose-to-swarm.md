@@ -418,7 +418,7 @@ Source and more details: https://github.com/Koenkk/zigbee2mqtt/issues/2049
 
 ## 4. Cluster configuration and deployment (Ansible)
 
-Will have to install docker and configure many compute modules. Don't really want to do that manually and miss anything... Here comes Ansible 
+At that point, I sorted all the questions I had to "translate" the compose file to work in Swarm Mode. Thinking about the cluster, you have to install docker and configure many compute modules... Don't really want to do that manually and miss anything... Here comes Ansible 
 ??? bug "TODO"
     Ansible for setting up the Swarm Mode
 My playbook is based on Jeff Geerling's Turing Pi 2, where I swapped K3s for Docker Swarm Mode: https://github.com/geerlingguy/turing-pi-2-cluster
