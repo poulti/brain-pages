@@ -419,6 +419,39 @@ Source and more details: https://github.com/Koenkk/zigbee2mqtt/issues/2049
 ## 4. Cluster configuration and deployment (Ansible)
 
 At that point, I sorted all the questions I had to "translate" the compose file to work in Swarm Mode. Thinking about the cluster, you have to install docker and configure many compute modules... Don't really want to do that manually and miss anything... Here comes Ansible 
+
+### Set cgroups to version 1 to enable the use of devices.allow
+
+```yaml
+- name: Set up Raspberry cgroup configuration.
+  hosts: cluster
+  tags: init_cgroup
+  gather_facts: true
+  become: true
+
+  handlers:
+    - name: reboot-pi
+      reboot:
+
+  vars_files:
+    - config.yml
+
+  tasks:
+    #cgroups are used to limit the amount of memory that is available to a particular group of processes
+    #systemd.unified_cgroup_hierarchy=false switches back to cgroupv1 (for the USB devices.allow entry to work)
+    - name: Ensure cgroups are configured correctly in cmdline.txt.
+      ansible.builtin.replace:
+        path: /boot/cmdline.txt
+        regexp: '^([\w](?!.*\b{{ item }}\b).*)$'
+        replace: '\1 {{ item }}'
+      with_items:
+        - "cgroup_memory=1"
+        - "cgroup_enable=memory"
+        - "systemd.unified_cgroup_hierarchy=false"
+      notify: reboot-pi
+      when: ansible_facts['env']['SUDO_USER'] == "pi" # only applies on Raspberry Pis
+```
+
 ??? bug "TODO"
     Ansible for setting up the Swarm Mode
 My playbook is based on Jeff Geerling's Turing Pi 2, where I swapped K3s for Docker Swarm Mode: https://github.com/geerlingguy/turing-pi-2-cluster
