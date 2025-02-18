@@ -420,7 +420,9 @@ Source and more details: https://github.com/Koenkk/zigbee2mqtt/issues/2049
 
 At that point, I sorted all the questions I had to "translate" the compose file to work in Swarm Mode. Thinking about the cluster, you have to install docker and configure many compute modules... Don't really want to do that manually and miss anything... Here comes Ansible 
 
-### Set cgroups to version 1 to enable the use of devices.allow
+### Set cgroups config
+
+The following ansible playbook snippet sets the configuration of nodes, in particular reverting to cgroup version 1 to enable the use of devices.allow and mounting the device as a volume in docker.
 
 ```yaml
 - name: Set up Raspberry cgroup configuration.
