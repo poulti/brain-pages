@@ -422,7 +422,7 @@ At that point, I sorted all the questions I had to "translate" the compose file 
 
 ### Set cgroups config
 
-The following ansible playbook snippet sets the configuration of nodes, in particular reverting to cgroup version 1 to enable the use of devices.allow and mounting the device as a volume in docker.
+The following ansible playbook snippet sets the configuration of nodes, in particular reverting to cgroup version 1 to enable the use of devices.allow and mounting the device as a volume in docker (as covered in [3. How to access **USB devices** in swarm mode?](#3-how-to-access-usb-devices-in-swarm-mode)).
 
 ```yaml
 - name: Set up Raspberry cgroup configuration.
@@ -453,6 +453,10 @@ The following ansible playbook snippet sets the configuration of nodes, in parti
       notify: reboot-pi
       when: ansible_facts['env']['SUDO_USER'] == "pi" # only applies on Raspberry Pis
 ```
+
+The rest of the playbook is quite straightforward, with the following steps:
+- Install docker on all nodes
+- ...
 
 ??? bug "TODO"
     Ansible for setting up the Swarm Mode
