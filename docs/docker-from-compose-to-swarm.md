@@ -454,13 +454,16 @@ The following ansible playbook snippet sets the configuration of nodes, in parti
       when: ansible_facts['env']['SUDO_USER'] == "pi" # only applies on Raspberry Pis
 ```
 
+### Rest of the playbook
+
+My playbook is based on Jeff Geerling's Turing Pi 2, where I swapped K3s for Docker Swarm Mode: https://github.com/geerlingguy/turing-pi-2-cluster
+
 The rest of the playbook is quite straightforward, with the following steps:
 - Install docker on all nodes
 - ...
 
 ??? bug "TODO"
     Ansible for setting up the Swarm Mode
-My playbook is based on Jeff Geerling's Turing Pi 2, where I swapped K3s for Docker Swarm Mode: https://github.com/geerlingguy/turing-pi-2-cluster
 
 
 ## Carve out portainer from the compose file
