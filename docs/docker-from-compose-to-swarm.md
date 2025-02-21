@@ -460,10 +460,14 @@ My playbook is based on Jeff Geerling's Turing Pi 2, where I swapped K3s for Doc
 
 The rest of the playbook is quite straightforward, with the following steps:
 - Install docker on all nodes
-- ...
+- Configure the swarm manager (swarm join, save the token...)
+- Add the worker nodes to the swarm (thanks to the manager token saved)
+- Add labels to nodes
+- Configure USB devices per the above "trick"
+- Set a portainer service on boot
+- Configure macvlan network
+- Install keepalived and node_exporter
 
-??? bug "TODO"
-    Ansible for setting up the Swarm Mode
 
 
 ## Carve out portainer from the compose file
