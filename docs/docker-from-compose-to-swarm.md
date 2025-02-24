@@ -459,6 +459,7 @@ The following ansible playbook snippet sets the configuration of nodes, in parti
 My playbook is based on Jeff Geerling's Turing Pi 2, where I swapped K3s for Docker Swarm Mode: https://github.com/geerlingguy/turing-pi-2-cluster
 
 The rest of the playbook is doing the following steps:
+
 - Install docker on all nodes
 - Configure the swarm manager (swarm join, save the token...)
 - Add the worker nodes to the swarm (thanks to the manager token saved)
