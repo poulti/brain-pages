@@ -261,6 +261,19 @@ This is not a comprehensive list (refer to the compose reference for that), but 
     - https://docs.frigate.video/installation/#calculating-required-shm-size
     ??? bug "TODO"
         what impacts on Frigate --> workaround with a volume tmpfs targeted to /dev/shm
+```yaml
+      - type: tmpfs # Optional: 1GB of memory, reduces SSD/SD Card wear
+        target: /tmp/cache
+        tmpfs:
+          size: 1000000000
+    # shm_size: "190mb" # update for your cameras based on calculation below (each Tapo is ~27mb and G4 is ~53mb)
+    # (width * height * 1.5 * 9 + 270480)/1048576 = <shm size in mb> for each camera
+    # The below volume replaces shm_size for swarm mode
+      - type: tmpfs
+        target: /dev/shm
+        tmpfs:
+           size: 190000000 # (this means 190mb)
+```
 
 The next sections focus on the volume / folders access in swarm, then on how to passe a USB device.
 
@@ -505,7 +518,7 @@ I've used a workaround for some time, by adding the following parameters to the 
       - "home-assistant-glow.local:<IP of the device>"
 ```
 
-My "fix" has been to repack the ESPHome image and adding avahi-utils to it, and allowing the container to access the dbus and avahi socket of the host (the host resolved the *.local properly).
+My "fix" has been to repack the ESPHome image and adding avahi-utils to it, and allowing the container to access the dbus and avahi socket of the host (because the host resolved the *.local properly).
 
 To do that, I'm using the following dockerfile (image published in docker hub [poulti/esphome-avahi](https://hub.docker.com/r/poulti/esphome-avahi)):
 ```Dockerfile title="Dockerfile"
