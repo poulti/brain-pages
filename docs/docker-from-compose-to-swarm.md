@@ -262,6 +262,12 @@ This is not a comprehensive list (refer to the compose reference for that), but 
     ??? bug "TODO"
         what impacts on Frigate --> workaround with a volume tmpfs targeted to /dev/shm
 ```yaml
+services:
+(...)
+  frigate:
+  (...)
+    volume:
+    (...)
       - type: tmpfs # Optional: 1GB of memory, reduces SSD/SD Card wear
         target: /tmp/cache
         tmpfs:
