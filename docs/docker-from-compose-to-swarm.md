@@ -258,9 +258,14 @@ This is not a comprehensive list (refer to the compose reference for that), but 
 - ``device:`` 
     - Ignored in swarm. Ok this one is an issue, particularly with our USB devices needed to communicate with the real world (Zigbee bridge, RFlink or Coral accelerator etc.)
 - ``shm_size:``
+    - Ignored in swarm. This is a buffer for cameras. See below for a workaround
     - https://docs.frigate.video/installation/#calculating-required-shm-size
-    ??? bug "TODO"
-        what impacts on Frigate --> workaround with a volume tmpfs targeted to /dev/shm
+
+
+#### Workaround for shm_size in Swarm Mode
+
+Since the parameter shm_size does not work in Swarm Mode, you can replace it with a tmpfs volume, as below:
+
 ```yaml
 services:
 (...)
