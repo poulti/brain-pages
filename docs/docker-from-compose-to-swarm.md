@@ -354,7 +354,7 @@ Couple things to deal with:
         docker node update --label-add usb2=true <name of the node>
         ```
 
-2. Even on the right node, how can we pass the USB device... without the "device" section?
+2. Even on the right node, how can we pass the USB device to the docker container... without the "device" section?
     - This one is trickier, we have to pass the device as a **volume**, and manually authorise the device for the container using a number of scripts
 
 3. Cgroups v1 vs v2
