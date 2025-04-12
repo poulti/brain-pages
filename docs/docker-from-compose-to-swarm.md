@@ -356,6 +356,7 @@ Couple things to deal with:
 
 2. Even on the right node, how can we pass the USB device to the docker container... without the "device" section?
     - This one is trickier, we have to pass the device as a **volume**, and manually authorise the device for the container using a number of scripts
+  This is described in the next section in more details.
 
 3. Cgroups v1 vs v2
     - Work in WSL as still v1...
