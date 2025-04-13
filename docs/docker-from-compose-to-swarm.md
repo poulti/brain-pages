@@ -358,15 +358,18 @@ Couple things to deal with:
     - This one is trickier, we have to pass the device as a **volume**, and manually authorise the device for the container using a number of scripts
   This is described in the next section in more details.
 
-3. Cgroups v1 vs v2
-    - Work in WSL as still v1...
-    - To know:
+3. A pre-requisite: switch to cgroups v1 (vs v2)
+    - cgroups are used to limit the amount of memory that is available to a particular group of processes
+    - Modern linux distro adopted cgroups v2 architecture around 2016... and the trick to access a device and mount it as a volume (described in next section in details) requires cgroups v1. I only realised that when switching to the cluster, as for some reason (maybe an old kernel), WSL was still using cgroups v1 and everything was working fine.
+    - To know which version your system is using run:
       - ``stat -fc %T /sys/fs/cgroup/``
         For cgroup v2, the output is ``cgroup2fs``.
         For cgroup v1, the output is ``tmpfs``.
-    - For 2 to work on modern systems (eg. rasp / modern linux): mount v1 device? 
-    - sudo mkdir /sys/fs/cgroup/devices
-    - sudo mount -t cgroup -o devices none /sys/fs/cgroup/devices
+    - On a raspberry, edit the file ``/boot/cmdline.txt`` and add:
+      - ``systemd.unified_cgroup_hierarchy=false``
+    - Not sure what those commands do, but I'll keep them here for now as I got them while researching
+      - sudo mkdir /sys/fs/cgroup/devices
+      - sudo mount -t cgroup -o devices none /sys/fs/cgroup/devices
 
 
 ### Create rules to mount the device as a volume
