@@ -363,13 +363,13 @@ Couple things to deal with:
     - Modern linux distro adopted cgroups v2 architecture around 2016... and the trick to access a device and mount it as a volume (described in next section in details) requires cgroups v1. I only realised that when switching to the cluster, as for some reason (maybe an old kernel), WSL was still using cgroups v1 and everything was working fine.
     - To know which version your system is using run:
       - ``stat -fc %T /sys/fs/cgroup/``
-        For cgroup v2, the output is ``cgroup2fs``.
-        For cgroup v1, the output is ``tmpfs``.
+        - For cgroup v2, the output is ``cgroup2fs``.
+        - For cgroup v1, the output is ``tmpfs``.
     - On a raspberry, edit the file ``/boot/cmdline.txt`` and add:
       - ``systemd.unified_cgroup_hierarchy=false``
     - Not sure what those commands do, but I'll keep them here for now as I got them while researching
-      - sudo mkdir /sys/fs/cgroup/devices
-      - sudo mount -t cgroup -o devices none /sys/fs/cgroup/devices
+        - sudo mkdir /sys/fs/cgroup/devices
+        - sudo mount -t cgroup -o devices none /sys/fs/cgroup/devices
 
 
 ### Create rules to mount the device as a volume
