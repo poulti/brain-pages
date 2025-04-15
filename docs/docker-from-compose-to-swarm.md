@@ -359,7 +359,7 @@ Couple things to deal with:
   This is described in the next section in more details.
 
 3. A pre-requisite: switch to cgroups v1 (vs v2)
-    - cgroups are used to limit the amount of memory that is available to a particular group of processes
+    - cgroups are used to limit the amount of memory that is available to a particular group of processes (not sure how that definition is relevant in this case). In the below, we use cgroups directly authorisation to allow a container to access a device, using its path, passing it as a volume.
     - Modern linux distro adopted cgroups v2 architecture around 2016... and the trick to access a device and mount it as a volume (described in next section in details) requires cgroups v1. I only realised that when switching to the cluster, as for some reason (maybe an old kernel), WSL was still using cgroups v1 and everything was working fine.
     - To know which version your system is using run:
       - ``stat -fc %T /sys/fs/cgroup/``
