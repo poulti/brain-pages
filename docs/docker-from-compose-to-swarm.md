@@ -361,12 +361,12 @@ Couple things to deal with:
 3. A pre-requisite: switch to cgroups v1 (vs v2)
     - cgroups are used to limit the amount of memory that is available to a particular group of processes (not sure how that definition is relevant in this case). In the below, we use cgroups directly authorisation to allow a container to access a device, using its path, passing it as a volume.
     - Modern linux distro adopted cgroups v2 architecture around 2016... and the trick to access a device and mount it as a volume (described in next section in details) requires cgroups v1. I only realised that when switching to the cluster, as for some reason (maybe an old kernel), WSL was still using cgroups v1 and everything was working fine.
-    - To know which version your system is using run:
-      - ``stat -fc %T /sys/fs/cgroup/``
-        - For cgroup v2, the output is ``cgroup2fs``.
-        - For cgroup v1, the output is ``tmpfs``.
+    - To know which version your system is using, run the following:
+        - ``stat -fc %T /sys/fs/cgroup/``
+          - For cgroup v2, the output is ``cgroup2fs``.
+          - For cgroup v1, the output is ``tmpfs``.
     - On a raspberry, edit the file ``/boot/cmdline.txt`` and add:
-      - ``systemd.unified_cgroup_hierarchy=false``
+        - ``systemd.unified_cgroup_hierarchy=false``
     - Not sure what those commands do, but I'll keep them here for now as I got them while researching
         - sudo mkdir /sys/fs/cgroup/devices
         - sudo mount -t cgroup -o devices none /sys/fs/cgroup/devices
