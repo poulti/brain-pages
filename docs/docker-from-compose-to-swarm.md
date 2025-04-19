@@ -367,7 +367,7 @@ Couple things to deal with:
             - For cgroup v1, the output is ``tmpfs``.
     - To fore the system to use cgroups v1, on a raspberry, edit the file ``/boot/cmdline.txt`` and add:
         - ``systemd.unified_cgroup_hierarchy=false``
-    - *Not sure what those commands do, but I'll keep them here for now as I got them while researching*
+    - *Not sure what those commands do, but I'll keep them here for now as I got them while researching* (maybe for the non raspberry devices, like RK1?)
         - sudo mkdir /sys/fs/cgroup/devices
         - sudo mount -t cgroup -o devices none /sys/fs/cgroup/devices
 
