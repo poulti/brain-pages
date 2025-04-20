@@ -373,6 +373,9 @@ Couple things to deal with:
 
 
 ### Create rules to mount the device as a volume
+
+For the container to be allowed to access the device while passing a volume, we need to give the authorisation (via cgroups) to the container. Since the container ID changes at each execution, we need the scripts and wrappers below to automatically find the right information and create the authorisation.
+
 The idea is as follows:
 
 1. The UDEV rule detects a USB device with a given vendor id and product id, then assigns it a name (symlink) and runs a 'docker-setup-*device*.sh' shell script.
