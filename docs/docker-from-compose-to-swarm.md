@@ -502,7 +502,7 @@ The rest of the playbook is doing the following steps:
 - Configure macvlan network
 - Install keepalived and node_exporter
 
-
+Create an issue on GitHub if you have a question on any part of it.
 
 ## Carve out portainer from the compose file
 
