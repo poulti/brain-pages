@@ -504,6 +504,8 @@ The rest of the playbook is doing the following steps:
 
 Create an issue on GitHub if you have a question on any part of it.
 
+# Random Q&A
+
 ## Carve out portainer from the compose file
 
 Portainer is used as a spring board and will be run on the master node automatically 
