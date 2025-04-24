@@ -504,7 +504,54 @@ The rest of the playbook is doing the following steps:
 
 Create an issue on GitHub if you have a question on any part of it.
 
-# Random Q&A
+# Random Q&A about the cluster
+
+## How to give a "real" IP on the LAN while in Docker Swarm?
+
+Initial problem: I switch Traefik as a reverse proxy (from nginx), reinstalled/reconfigured crowdsec... only to realise in Traefik ``access.log`` that all "external IP" (check it's actually the name in traefik) where all **10.0.0.2**, even when accessing my instance from Internet (from my router forwarding to Traefik). This is the IP of a Docker router part of the ``ingress`` network (one of the default network created in swarm). Basically, traefik can see IPs from docker network but not the actual public IPs from clients...
+However, that's the IP field used by crowdsec to decide if it should ban or let through the proxy. So I needed to give Traefik access to the real IP, and that's where the macvlan driver from Docker network comes into play.
+
+The [macvlan driver](https://docs.docker.com/network/drivers/macvlan/) allows the container to display a MAC address to your home network (eg. your 192.168.0.0/24) and virtually be part of it.
+
+The catch: by construction, a macvlan network needs to know the actual network interface of the machine to talk to it - which may vary in a cluster (swarm). So you can't create a macvlan network in one go on Docker Swarm.
+
+The solution: 
+
+- create a **configuration** for a macvlan network, on each node of the cluster
+- then create the actual network from a manager of the swarm
+
+In my case, it looks like (extract from my main ansible playbook):
+```yaml
+  - name: Create macvlan network config
+    command: docker network create --config-only --subnet {{ docker_macvlan_subnet }} --gateway {{ docker_macvlan_gateway }} --ip-range {{ docker_macvlan_ip_range }} -o parent=eth0 {{ docker_macvlan_config_name }}
+```
+Where:
+
+- ``docker_macvlan_subnet`` is your physical subnet to join, eg. **192.168.0.0/24**
+- ``docker_macvlan_gateway`` is your gateway in that network, eg. **192.168.0.1**. This is important for the next parameter to work as intended.
+- ``docker_macvlan_ip_range`` is the range of IP for the containers joining that network. Here I want a static IP for Traefik, so I assigned a "range of 1 IP", for instance **192.168.0.101/32**. The /32 means 32 bits of the IP are used, hence this "range" is actually the 1 IP provided. This variable has been set to a different value for each node, to avoid IP clashes. 
+- ``parent=eth0`` is the name of the network adapter (physical one) from the node.
+- ``docker_macvlan_config_name`` is the name of the docker network config file that will be used to create the network at the swarm level (ie. need to have one with the same name on each node to be valid).
+
+And to create the macvlan network:
+```yaml
+  - name: Create macvlan network
+    command: docker network create --config-from {{ docker_macvlan_config_name }} -d macvlan --scope swarm --attachable {{ docker_macvlan_net_name }}
+```
+Where:
+
+- ``docker_macvlan_config_name`` is the name of the docker network config file above.
+- ``docker_macvlan_net_name`` is the name of the actual macvlan network your service will be joining.
+- Note the ``scope swarm``, and ``attachable`` parameters, as swarm mode services can only join networks scoped at the swarm level (ie. not a local network), so it also needs to be **attachable**.
+
+After that and to wrap up, I had to update my local DNS entries to point to the newly acquired IP for Traefik (ie. the 192.168.0.101 above, instead of the usual IP of my cluster).
+
+And TADA, my access.log change from having only 10.0.0.2 IPs to displaying beautiful external IPs from the clients, like 148.252.141.15:
+```log
+10.0.0.2 - - [23/Sep/2023:13:49:35 +0100] "GET /apis/tasks HTTP/2.0" 304 0 "-" "-" 605 "websecure-swarmviz@docker" "IP-REDACTED" 65ms
+148.252.141.15 - - [23/Sep/2023:13:49:43 +0100] "GET /api/history/period/2023-09-23T12:49:29.348Z?filter_entity_id=sensor.processor_use&end_time=2023-09-23T12:49:44.087Z&skip_initial_state&minimal_response HTTP/2.0" 200 10 "-" "-" 607 "websecure-homeassistant-router@file" "IP-REDACTED" 36ms
+```
+
 
 ## Carve out portainer from the compose file
 
@@ -562,51 +609,6 @@ And I added the following volumes to the ESPHome Docker service in docker-compos
       - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
 ```
 
-## Adding a macvlan network in Docker Swarm for Traefik to see origin IP
-
-Initial problem: I switch Traefik as a reverse proxy (from nginx), reinstalled/reconfigured crowdsec... only to realise in Traefik ``access.log`` that all "external IP" (check it's actually the name in traefik) where all **10.0.0.2**, even when accessing my instance from Internet (from my router forwarding to Traefik). This is the IP of a Docker router part of the ``ingress`` network (one of the default network created in swarm). Basically, traefik can see IPs from docker network but not the actual public IPs from clients...
-However, that's the IP field used by crowdsec to decide if it should ban or let through the proxy. So I needed to give Traefik access to the real IP, and that's where the macvlan driver from Docker network comes into play.
-
-The [macvlan driver](https://docs.docker.com/network/drivers/macvlan/) allows the container to display a MAC address to your home network (eg. your 192.168.0.0/24) and virtually be part of it.
-
-The catch: by construction, a macvlan network needs to know the actual network interface of the machine to talk to it - which may vary in a cluster (swarm). So you can't create a macvlan network in one go on Docker Swarm.
-
-The solution: 
-
-- create a **configuration** for a macvlan network, on each node of the cluster
-- then create the actual network from a manager of the swarm
-
-In my case, it looks like (extract from my main ansible playbook):
-```yaml
-  - name: Create macvlan network config
-    command: docker network create --config-only --subnet {{ docker_macvlan_subnet }} --gateway {{ docker_macvlan_gateway }} --ip-range {{ docker_macvlan_ip_range }} -o parent=eth0 {{ docker_macvlan_config_name }}
-```
-Where:
-
-- ``docker_macvlan_subnet`` is your physical subnet to join, eg. **192.168.0.0/24**
-- ``docker_macvlan_gateway`` is your gateway in that network, eg. **192.168.0.1**. This is important for the next parameter to work as intended.
-- ``docker_macvlan_ip_range`` is the range of IP for the containers joining that network. Here I want a static IP for Traefik, so I assigned a "range of 1 IP", for instance **192.168.0.101/32**. The /32 means 32 bits of the IP are used, hence this "range" is actually the 1 IP provided. This variable has been set to a different value for each node, to avoid IP clashes. 
-- ``parent=eth0`` is the name of the network adapter (physical one) from the node.
-- ``docker_macvlan_config_name`` is the name of the docker network config file that will be used to create the network at the swarm level (ie. need to have one with the same name on each node to be valid).
-
-And to create the macvlan network:
-```yaml
-  - name: Create macvlan network
-    command: docker network create --config-from {{ docker_macvlan_config_name }} -d macvlan --scope swarm --attachable {{ docker_macvlan_net_name }}
-```
-Where:
-
-- ``docker_macvlan_config_name`` is the name of the docker network config file above.
-- ``docker_macvlan_net_name`` is the name of the actual macvlan network your service will be joining.
-- Note the ``scope swarm``, and ``attachable`` parameters, as swarm mode services can only join networks scoped at the swarm level (ie. not a local network), so it also needs to be **attachable**.
-
-After that and to wrap up, I had to update my local DNS entries to point to the newly acquired IP for Traefik (ie. the 192.168.0.101 above, instead of the usual IP of my cluster).
-
-And TADA, my access.log change from having only 10.0.0.2 IPs to displaying beautiful external IPs from the clients, like 148.252.141.15:
-```log
-10.0.0.2 - - [23/Sep/2023:13:49:35 +0100] "GET /apis/tasks HTTP/2.0" 304 0 "-" "-" 605 "websecure-swarmviz@docker" "IP-REDACTED" 65ms
-148.252.141.15 - - [23/Sep/2023:13:49:43 +0100] "GET /api/history/period/2023-09-23T12:49:29.348Z?filter_entity_id=sensor.processor_use&end_time=2023-09-23T12:49:44.087Z&skip_initial_state&minimal_response HTTP/2.0" 200 10 "-" "-" 607 "websecure-homeassistant-router@file" "IP-REDACTED" 36ms
-```
 
 ## Notes for later - migration steps on D-day
 
