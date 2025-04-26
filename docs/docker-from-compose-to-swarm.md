@@ -555,9 +555,8 @@ And TADA, my access.log change from having only 10.0.0.2 IPs to displaying beaut
 
 ## Carve out portainer from the compose file
 
-Because container stacks are launched by portainer, I wanted portainer to restart automatically if the machine reboots, so it restarts the other containers.
-Portainer is used as a spring board and will be run on the master node automatically 
-The single service "portainer" compose file also creates the custom overlay network for others services to join
+Because container (stacks) are launched and managed by portainer, I wanted portainer to restart automatically if the machine reboots, so it restarts the other containers subsequently.
+I decided to create a single compose file for the service "portainer" and the custom overlay network for others services to join
 
 From portainer, the rest of the previous compose, now stack, will be launched. A template is created to recreate/launch easily.
 Doing it from portainer allows to control the stack from the web
