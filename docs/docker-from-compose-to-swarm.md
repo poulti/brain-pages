@@ -561,11 +561,10 @@ I decided to create a single compose file for the service "portainer" and the cu
 From portainer, the rest of the previous compose, now stack, will be launched. A template is created to recreate/launch easily.
 Doing it from portainer allows to control the stack from the web
 
-## Update access to node-red files
-
-[From 'Running under Docker' (node-red doc)](https://nodered.org/docs/getting-started/docker)
+## Access denied on files from a service? eg. node-red files
 
 > Note: Users migrating from version 0.20 to 1.0 will need to ensure that any existing /data directory has the correct ownership. As of 1.0 this needs to be 1000:1000. This can be forced by the command `sudo chown -R 1000:1000 path/to/your/node-red/data`
+[From 'Running under Docker' (node-red doc)](https://nodered.org/docs/getting-started/docker)
 
 In my case, on my storage node, I ran:
 ```
