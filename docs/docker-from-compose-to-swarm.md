@@ -571,10 +571,6 @@ In my case, on my storage node, I ran:
 sudo chown -R 1000:1000 /zfsdata/nfsshare/HomeAssistant/node-red
 ```
 
-## Hardware acceleration on Rasp pi4
-
-Linux Kernel bug fixed in July 2023 -- but sadly doesn't really impact the ffmpeg default processing... mostly for the object recognition... 
-
 ## ESPHome sees all devices offline?
 
 This is due to ESPHome not resolving the device-name.local names to IP address (via mDNS).
