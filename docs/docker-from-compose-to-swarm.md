@@ -571,7 +571,7 @@ In my case, on my storage node, I ran:
 sudo chown -R 1000:1000 /zfsdata/nfsshare/HomeAssistant/node-red
 ```
 
-## ESPHome sees all devices offline?
+## All ESPHome devices appear offline?
 
 This is due to ESPHome not resolving the device-name.local names to IP address (via mDNS).
 
