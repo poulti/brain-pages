@@ -573,7 +573,7 @@ sudo chown -R 1000:1000 /zfsdata/nfsshare/HomeAssistant/node-red
 
 ## All ESPHome devices appear offline?
 
-On the ESPHome home page, my devices show "offline". This is due to ESPHome not resolving the device-name.local names to IP address (via mDNS).
+On the ESPHome home page, my devices show "offline". This is due to ESPHome not resolving the device-name.local names to IP address (via mDNS), probably because of the routing in the cluster/docker networks.
 
 I've used a workaround for some time, by adding the following parameters to the ESPHome Docker service in docker-compose.yaml, which hardcodes the IP addresses of the devices, in the hosts file of the container:
 ```yaml
