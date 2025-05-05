@@ -623,12 +623,3 @@ And I added the following volumes to the ESPHome Docker service in docker-compos
 - [ ] Connect USB devices to the right USB
 - [ ] Change the port forwarding from external IP
 
-
-### Test embedding image
-
-<figure markdown>
-
-![Diablo IV Early access Wiz](./images/wizard.png){ width="300" }
-<figcaption markdown> Diablo IV Early access Wiz. </figcaption>
-
-</figure>
