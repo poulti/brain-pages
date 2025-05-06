@@ -607,6 +607,8 @@ And I added the following volumes to the ESPHome Docker service in docker-compos
 
 ## Notes for later - migration steps on D-day
 
+Switching from Docker running on a Windows desktop to a Turing pi Cluster, here are all the things I think I had to do
+
 - [ ] Flash 2x raspberry emmc
 - [ ] Flash 1x micro sd card raspberry 
 - [ ] Flash 1x micro sd card Jetson
