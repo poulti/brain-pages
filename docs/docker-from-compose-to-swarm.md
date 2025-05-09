@@ -609,11 +609,9 @@ And I added the following volumes to the ESPHome Docker service in docker-compos
 
 Switching from Docker running on a Windows desktop to a Turing pi Cluster, here are all the things I think I had to do
 
-- [ ] Flash 2x raspberry emmc
-- [ ] Flash 1x micro sd card raspberry 
-- [ ] Flash 1x micro sd card Jetson
-- [ ] Install components in box
-- [ ] Plug Pi, Jetson, harddrives
+- [ ] Flash modules: 2x raspberry emmc, 1x micro sd card raspberry, 1x RK1 emmc
+- [ ] Install mobo and power supply
+- [ ] Connect Pi, RK1, SSDs
 - [ ] Test boot OK
 - [ ] Run first Ansible ping / accept SSH keys
 - [ ] Configure USB2 to the right node
