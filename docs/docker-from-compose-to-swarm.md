@@ -612,10 +612,10 @@ Switching from Docker running on a Windows desktop to a Turing pi Cluster, here 
 - [ ] Flash modules: 2x raspberry emmc, 1x micro sd card raspberry, 1x RK1 emmc
 - [ ] Install mobo and power supply
 - [ ] Connect Pi, RK1, SSDs
-- [ ] Test boot OK
+- [ ] Test boot OK and connect to Turing Pi BMC
+- [ ] Configure USB2 to the right Turing Pi node
 - [ ] Run first Ansible ping / accept SSH keys
-- [ ] Configure USB2 to the right node
-- [ ] Check Ansible config.yml for correct true/false settings
+- [ ] Check Ansible config.yml for correct true/false settings (eg. to run the install of storage)
 - [ ] Test Ansible setup playbooks (swarm activation + NFS setup)
 - [ ] Copy data on NFS storage
 - [ ] Change Docker Volumes to NFS binds
