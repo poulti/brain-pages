@@ -616,7 +616,7 @@ Switching from Docker running on a Windows desktop to a Turing pi Cluster, here 
 - [ ] Configure USB2 to the right Turing Pi node
 - [ ] Run first Ansible ping / accept SSH keys
 - [ ] Check Ansible config.yml for correct true/false settings (eg. to run the install of storage)
-- [ ] Test Ansible setup playbooks (swarm activation + NFS setup)
+- [ ] Test Ansible setup playbooks (swarm activation + NFS setup), add ``--check`` to the command
 - [ ] Copy data on NFS storage
 - [ ] Change Docker Volumes to NFS binds
 - [ ] Change Frigate image to the right CPU arch type
