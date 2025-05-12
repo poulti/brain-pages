@@ -605,7 +605,7 @@ And I added the following volumes to the ESPHome Docker service in docker-compos
 ```
 
 
-## Notes for later - migration steps on D-day
+## Migration steps from desktop to turing pi cluster
 
 Switching from Docker running on a Windows desktop to a Turing pi Cluster, here are all the things I think I had to do
 
