@@ -607,7 +607,7 @@ And I added the following volumes to the ESPHome Docker service in docker-compos
 
 ## Migration steps from desktop to turing pi cluster
 
-Switching from Docker running on a Windows desktop to a Turing pi Cluster, here are all the things I think I had to do
+Switching from Docker running on a Windows desktop to a Turing pi Cluster, here are all the things to migrate
 
 - [ ] Flash modules: 2x raspberry emmc, 1x micro sd card raspberry, 1x RK1 emmc
 - [ ] Install mobo and power supply
