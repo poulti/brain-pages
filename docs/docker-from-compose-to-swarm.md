@@ -607,19 +607,20 @@ And I added the following volumes to the ESPHome Docker service in docker-compos
 
 ## Migration steps from desktop to turing pi cluster
 
-Switching from Docker running on a Windows desktop to a Turing pi Cluster, here are all the things to migrate
+Switching from Docker running on a Windows desktop to a Turing pi Cluster, here are all the steps I took to migrate
 
 - [ ] Flash modules: 2x raspberry emmc, 1x micro sd card raspberry, 1x RK1 emmc
 - [ ] Install mobo and power supply
 - [ ] Connect Pi, RK1, SSDs
-- [ ] Test boot OK and connect to Turing Pi BMC
+- [ ] Test boot OK and connect to Turing Pi BMC (https://turingpi/)
 - [ ] Configure USB2 to the right Turing Pi node
 - [ ] Run first Ansible ping / accept SSH keys
 - [ ] Check Ansible config.yml for correct true/false settings (eg. to run the install of storage)
-- [ ] Test Ansible setup playbooks (swarm activation + NFS setup), add ``--check`` to the command
-- [ ] Copy data on NFS storage
+- [ ] Test Ansible setup playbooks (swarm activation + NFS setup) by adding ``--check`` to the command
+- [ ] Copy the container config data from desktop to the NFS storage
 - [ ] Change Docker Volumes to NFS binds
 - [ ] Change Frigate image to the right CPU arch type
-- [ ] Connect USB devices to the right USB
+- [ ] Connect USB devices to the right USB ports on Turing Pi
 - [ ] Change the port forwarding from external IP
+- [ ] Shutdown everything on desktop and deploy the stacks on the cluster
 
