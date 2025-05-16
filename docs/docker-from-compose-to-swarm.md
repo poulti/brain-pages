@@ -553,7 +553,7 @@ And TADA, my access.log change from having only 10.0.0.2 IPs to displaying beaut
 ```
 
 
-## Carve out portainer from the compose file
+## How to restart all services if the cluster cycle power?
 
 Because container (stacks) are launched and managed by portainer, I wanted portainer to restart automatically if the machine reboots, so it restarts the other containers subsequently.
 I decided to create a single compose file for the service "portainer" and the custom overlay network for others services to join
