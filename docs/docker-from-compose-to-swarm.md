@@ -563,6 +563,8 @@ Doing it from portainer allows to control the stack from the web
 
 ## Access denied on files from a service? eg. node-red files
 
+I often get "access denied" errors on volumes accessed by services in the cluster. The example of Node-Red below is a good one to illustrate how to solve it.
+A change in Node-Red version is described below:
 > Note: Users migrating from version 0.20 to 1.0 will need to ensure that any existing /data directory has the correct ownership. As of 1.0 this needs to be 1000:1000. This can be forced by the command `sudo chown -R 1000:1000 path/to/your/node-red/data`
 [From 'Running under Docker' (node-red doc)](https://nodered.org/docs/getting-started/docker)
 
