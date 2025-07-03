@@ -556,10 +556,10 @@ And TADA, my access.log change from having only 10.0.0.2 IPs to displaying beaut
 ## How to restart all services if the cluster cycle power?
 
 Because container (stacks) are launched and managed by portainer, I wanted portainer to restart automatically if the machine reboots, so it restarts the other containers subsequently.
-I decided to create a single compose file for the service "portainer" and the custom overlay network for others services to join
+I decided to create a single compose file for the service "portainer" and the custom overlay network for others services to join.
 
-From portainer, the rest of the previous compose, now stack, will be launched. A template is created to recreate/launch easily.
-Doing it from portainer allows to control the stack from the web
+From portainer, the rest of the containers (in stacks) will be launched. A template is created to recreate/launch easily.
+Doing it from portainer allows to control the stack from the web rather than command line on the machine.
 
 ## Access denied on files from a service? eg. node-red files
 
