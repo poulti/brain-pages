@@ -384,7 +384,7 @@ The idea is as follows:
 3. The service makes sure the script in 2. is executed regularly (because the UDEV rule is only activated when the USB device is plugged)
 4. A script is run by the service, to loop-execute the script in 2.
 
-Example with my zigbee USB stick
+Example with my zigbee USB stick (since then, I upgraded to a ETH version, but that still applies to the RFlink)
 
 1. UDEV rule: `/etc/udev/rules.d/99-zigbee.rules`
 
