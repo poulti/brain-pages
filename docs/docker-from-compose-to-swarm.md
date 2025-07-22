@@ -449,7 +449,7 @@ Source and more details: https://github.com/Koenkk/zigbee2mqtt/issues/2049
 
 ## 4. Cluster configuration and deployment (Ansible)
 
-At that point, I sorted all the questions I had to "translate" the compose file to work in Swarm Mode. Thinking about the cluster, you have to install docker and configure multiple machines by definition, and I still don't like to do things directly on the machine and if it needs to be changed, to have to figure what I did x years ago... Here comes Ansible 
+At that point, I sorted all the questions I had to "translate" the compose file to work in Swarm Mode. Thinking about the cluster, you have to install docker and configure multiple machines by definition, personally, I still don't like to do things directly on the machine and if it needs to be changed, to have to figure what I did x years ago... Enter Ansible 
 
 Ansible enables to describe a configuration state in a yaml file (Ansible playbook), and apply it to a single or set of machines. So instead of changing the target machines directly, you list tasks in the playbook and "run" the playbook... and Ansible will connect to the machines via SSH to change the configuration of them according to the playbook.
 
