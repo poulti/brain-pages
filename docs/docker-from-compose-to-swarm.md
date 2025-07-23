@@ -2,7 +2,7 @@
 tags: Docker, Blog
 ---
 
-> This page is WIP - I fully migrated to Swarm Mode by now and I am updating the learnings in here progressively. This page will be refreshed a couple minutes after each edit.
+> A homelab story from 2023 to 2025+...
 
 # How to migrate a docker compose file to Docker Swarm Mode?
 ...from `docker compose up -d` to `docker stack deploy --compose-file docker-compose.yaml ha`
