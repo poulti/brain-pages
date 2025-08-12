@@ -26,5 +26,6 @@ Shouldn't be too much of a problem under earth.
 
 # Secondary 
 
-## Heating
+## Heating / cooling 
+Via the ventilation system 
 ## Heating water
