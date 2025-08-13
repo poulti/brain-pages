@@ -6,6 +6,7 @@ tags: Blog
 # Challenges to address
 # Location / environment based
 ## Storm drains
+- Not at the bottom of a hill/next to water (contradicts the water turbine)
 ## Earthquake
 ## Storm/tornado
 Shouldn't be too much of a problem under earth.
