@@ -7,6 +7,7 @@ tags: Blog
 # Location / environment based
 ## Storm drains
 - Not at the bottom of a hill/next to water (contradicts the water turbine)
+- need to check how the underground layers usually are laid out and how the water flows downhill. Construction may need to be like a "boat"
 ## Earthquake
 ## Storm/tornado
 Shouldn't be too much of a problem under earth.
