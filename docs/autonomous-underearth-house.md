@@ -14,7 +14,9 @@ tags: Blog
 Shouldn't be too much of a problem under earth.
 
 # Build of the house
-## Waterproof/damp proof 
+## Waterproof/damp proof
+- maybe a container type, like the garden house (good isolation and watertight)
+
 ## Ventilation + filtration system
 
 # Primary input and output
