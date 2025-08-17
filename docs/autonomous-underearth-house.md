@@ -18,6 +18,7 @@ Shouldn't be too much of a problem under earth.
 - maybe a container type, like the garden house (good isolation and watertight)
 
 ## Ventilation + filtration system
+- Heat pump with filters to purify the air in addition to warming or cooling 
 
 # Primary input and output
 ## Electricity generation
