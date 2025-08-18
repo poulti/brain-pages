@@ -5,11 +5,14 @@ tags: Blog
 # 
 # Challenges to address
 # Location / environment based
+
 ## Storm drains
 - Not at the bottom of a hill/next to water (contradicts the water turbine)
 - need to check how the underground layers usually are laid out and how the water flows downhill. Construction may need to be like a "boat"
+
 ## Earthquake
 - Not sure the build can do much about this --> avoid locations prone to it. I guess the UK is OK for that.
+
 ## Storm/tornado
 Shouldn't be too much of a problem under earth.
 
