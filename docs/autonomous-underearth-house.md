@@ -38,3 +38,8 @@ Shouldn't be too much of a problem under earth.
 ## Heating / cooling 
 Via the ventilation system 
 ## Heating water
+
+## Access
+How to get inside in a safe way depending on the weather?
+
+## Check oxygen/CO2 levels inside + emergency alarm?
