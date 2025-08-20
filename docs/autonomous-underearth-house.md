@@ -43,3 +43,5 @@ Via the ventilation system
 How to get inside in a safe way depending on the weather?
 
 ## Check oxygen/CO2 levels inside + emergency alarm?
+ie. what if the vent for the Aircon gets stuck and CO2 level raises.
+What do they do in a submarine?
