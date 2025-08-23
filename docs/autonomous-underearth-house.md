@@ -2,7 +2,7 @@
 tags: Blog
 ---
 
-> _this is a brainstorming about having an off grid, independent house/bunker, and buried under the earth_
+> _This is a brainstorming about having an off grid, independent house/bunker, and burried under the earth_
 
 # 
 # Challenges to address
