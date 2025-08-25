@@ -4,7 +4,6 @@ tags: Blog
 
 > _This is a brainstorming about having an off grid, independent house/bunker, and buried under the earth_
 
-# 
 # Challenges to address
 # Location / environment based
 
