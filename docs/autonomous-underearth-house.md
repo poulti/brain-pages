@@ -32,6 +32,7 @@ Shouldn't be too much of a problem under earth.
 ## Water production
 - Filter river?
 - Recycle grey water
+- Filter rain water
 ## Sewage system
 
 # Secondary 
