@@ -40,11 +40,11 @@ Shouldn't be too much of a problem under earth.
 # Secondary 
 
 ## Heating / cooling 
-Via the ventilation system 
+- Via the ventilation system 
 ## Heating water
 
 ## Access
-How to get inside in a safe way depending on the weather?
+- How to get inside in a safe way depending on the weather? Like a sas?
 
 ## Oxygen/CO2 levels + emergency alarm?
 ie. what if the vent for the Aircon gets stuck and CO2 level raises.
