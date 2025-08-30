@@ -45,6 +45,7 @@ Shouldn't be too much of a problem under earth.
 
 ## Access
 - How to get inside in a safe way depending on the weather? Like a submarine entrance?
+- In any case, likely planning a small room to clean shoes and stuff
 
 ## Oxygen/CO2 levels + emergency alarm?
 ie. what if the vent for the Aircon gets stuck and CO2 level raises.
