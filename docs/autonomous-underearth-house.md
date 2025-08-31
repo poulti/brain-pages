@@ -35,6 +35,7 @@ Shouldn't be too much of a problem under earth.
 - Filter rain water
 ## Sewage system
 - Must have a difference between tap/shower water and toilets flush. Maybe two different treatments?
+- Grey and foul?
 
 
 # Secondary 
