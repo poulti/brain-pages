@@ -41,7 +41,7 @@ Shouldn't be too much of a problem under earth.
 # Secondary 
 
 ## Heating / cooling 
-- Via the ventilation system 
+- Via the ventilation system - will need an external mini house to have the exhausts/external units
 ## Heating water
 
 ## Access
