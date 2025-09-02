@@ -43,6 +43,8 @@ Shouldn't be too much of a problem under earth.
 ## Heating / cooling 
 - Via the ventilation system - will need an external mini house to have the exhausts/external units
 ## Heating water
+- Gas is impossible to source naturally
+- Electricity based?
 
 ## Access
 - How to get inside in a safe way depending on the weather? Like a submarine entrance?
