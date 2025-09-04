@@ -35,7 +35,7 @@ Shouldn't be too much of a problem under earth.
 - Filter rain water
 ## Sewage system
 - Must have a difference between tap/shower water and toilets flush. Maybe two different treatments?
-- Grey and foul? In isolation (in the middle of nowhere) could the second one be treated to be released with the first?
+- Grey and foul? In isolation (in the middle of nowhere) could the second one be treated to be released with the first? Like a mixer?
 
 
 # Secondary 
