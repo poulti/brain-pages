@@ -36,6 +36,7 @@ Shouldn't be too much of a problem under earth.
 ## Sewage system
 - Must have a difference between tap/shower water and toilets flush. Maybe two different treatments?
 - Grey and foul? In isolation (in the middle of nowhere) could the second one be treated to be released with the first? Like a mixer?
+- Off grid toilets system seem to move waste mechanically (with a manually actioned pump) and turn the waste into fertilizer with bacteria - so you don't need the sewer at all.
 
 
 # Secondary 
