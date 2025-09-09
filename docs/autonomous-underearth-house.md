@@ -25,7 +25,7 @@ Shouldn't be too much of a problem under earth.
 
 # Primary input and output
 ## Electricity generation
-- Solar panels
+- Solar panels, would take a large area
 - Water turbine from river
 - Wind turbine
 ## Water production
