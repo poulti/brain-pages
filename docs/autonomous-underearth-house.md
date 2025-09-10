@@ -29,7 +29,7 @@ Shouldn't be too much of a problem under earth.
 - Water turbine from river
 - Wind turbine
 ## Water production
-- Filter river?
+- Filter river/mountain water nearby?
 - Recycle grey water
 - Filter rain water
 ## Sewage system
