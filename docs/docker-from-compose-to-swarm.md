@@ -622,6 +622,6 @@ Switching from Docker running on a Windows desktop to a Turing pi Cluster, here 
 - [ ] Change Docker Volumes to NFS binds
 - [ ] Change Frigate image to the right CPU arch type
 - [ ] Connect USB devices to the right USB ports on Turing Pi
-- [ ] Change the port forwarding from external IP
+- [ ] Change the port forwarding rule from external IP
 - [ ] Shutdown everything on desktop and deploy the stacks on the cluster
 
