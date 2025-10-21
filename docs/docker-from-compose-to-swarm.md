@@ -616,6 +616,7 @@ Physical world:
 - [ ] Install mobo and power supply, connect Pi, RK1, SSDs
 - [ ] Test boot OK and connect to Turing Pi BMC (https://turingpi/ by default)
 - [ ] Configure USB2 to the right Turing Pi node
+On my computer:
 - [ ] Run first Ansible ping / accept SSH keys
 - [ ] Check Ansible config.yml for correct true/false settings (eg. to run the install of storage)
 - [ ] Test Ansible setup playbooks (swarm activation + NFS setup) by adding ``--check`` to the command
