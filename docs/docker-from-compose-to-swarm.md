@@ -23,7 +23,7 @@ How did it start... for context:
 
 ### A first docker compose, running on windows / docker desktop 
 
-So I started creating a docker compose file to run on Docker for Windows, with just Home Assistant to begin with. That's pretty simple at that stage, you can find examples of docker compose file on the official website.
+I started creating a docker compose file to run on Docker for Windows, with just Home Assistant to begin with. That's pretty simple at that stage, you can find examples of docker compose file on the official website.
 Below is the simplified copy of one of the first compose file:
 
 ```yaml
