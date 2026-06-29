@@ -23,6 +23,7 @@ But needs consideration for the vents / chimney and entrance
 
 ## Ventilation + filtration system
 - Heat pump with filters to purify the air in addition to warming or cooling 
+- Also needs to renew the air (CO2 out, O2 in) and while at it, be hazard proof: Chemical, Biological, Radiological, and Nuclear (CBRN) threats prevention. Look for bunker ventilation HVAC with filters
 
 # Primary input and output
 ## Electricity generation
