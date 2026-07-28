@@ -19,7 +19,7 @@ But needs consideration for the vents / chimney and entrance
 
 # Build of the house
 ## Waterproof/damp proof
-- maybe a container type, like the garden house (good isolation and watertight)
+- Maybe a container type, like the garden house (good isolation and watertight)
 
 ## Ventilation + filtration system
 - Heat pump with filters to purify the air in addition to warming or cooling 
