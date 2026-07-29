@@ -22,7 +22,7 @@ But needs consideration for the vents / chimney and entrance
 - Maybe a container type, like the garden house (good isolation and watertight)
 
 ## Ventilation + filtration system
-- Heat pump with filters to purify the air in addition to warming or cooling 
+- Heat pump + HVAC with filters to purify the air in addition to warming or cooling 
 - Also needs to renew the air (CO2 out, O2 in) and while at it, be hazard proof: Chemical, Biological, Radiological, and Nuclear (CBRN) threats prevention. Look for bunker ventilation HVAC with filters
 
 # Primary input and output
