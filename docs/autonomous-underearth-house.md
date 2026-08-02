@@ -27,9 +27,9 @@ But needs consideration for the vents / chimney and entrance
 
 # Primary input and output
 ## Electricity generation
-- Solar panels, would take a large area
-- Water turbine from river
-- Wind turbine
+- Solar panels, would take a large area on the surface, giving exposure/weakness
+- Water turbine from river - from youtube video, this was enough to power a pump to give water, but not power the whole thing.
+- Wind turbine: even worse in term of attack surface?
 ## Water production
 - Filter river/mountain water nearby?
 - Recycle grey water
