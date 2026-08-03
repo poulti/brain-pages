@@ -27,7 +27,7 @@ But needs consideration for the vents / chimney and entrance
 
 # Primary input and output
 ## Electricity generation
-- Solar panels, would take a large area on the surface, giving exposure/weakness
+- Solar panels, would take a large area on the surface, giving exposure/weakness. Maybe could be deployed in the morning and packed/closed in the evening?
 - Water turbine from river - from youtube video, this was enough to power a pump to give water, but not power the whole thing.
 - Wind turbine: even worse in term of attack surface?
 ## Water production
