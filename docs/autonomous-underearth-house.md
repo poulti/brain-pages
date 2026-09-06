@@ -9,7 +9,7 @@ tags: Blog
 
 ## Storm drains
 - Not at the bottom of a hill/next to water (contradicts the water turbine)
-- Need to check how the underground layers usually are laid out and how the water flows downhill. Construction may need to be like a "boat", ie. completely watertight, so water comes around the house.
+- Need to check how the underground layers usually are laid out and how the water flows downhill. Construction may need to be like a "boat", ie. completely watertight, so water goes around the house.
 ## Earthquake
 - Not sure the build can do much about this --> avoid locations prone to it. I guess the UK is OK for that.
 ## High winds / tornado
