@@ -14,7 +14,7 @@ tags: Blog
 - Not sure the build can do much about this --> avoid locations prone to it. I guess the UK is OK for that.
 ## High winds / tornado
 Shouldn't be too much of a problem under earth.
-But needs consideration for the vents / chimney and entrance
+But needs consideration for the vents / chimney, solar panel/wind turbine and entrance
 
 
 # Build of the house
