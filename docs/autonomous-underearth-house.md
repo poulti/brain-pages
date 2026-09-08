@@ -30,6 +30,7 @@ But needs consideration for the vents / chimney, solar panel/wind turbine and en
 - Solar panels, would take a large area on the surface, giving exposure/weakness. Maybe could be deployed in the morning and packed/closed in the evening?
 - Water turbine from river - from youtube video, this was enough to power a pump to give water, but not power the whole thing. And if the river dries out from global warming, kills that's a SPOF.
 - Wind turbine: even worse in term of attack surface - maybe could be folded too though (like in Fallout for the hidden brotherhood camp)
+- Also would need sufficient batteries to last a number of hours considering the inconsistent generation.
 ## Water production
 - Filter river/mountain water nearby?
 - Recycle grey water
