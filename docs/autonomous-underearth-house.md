@@ -32,7 +32,7 @@ But needs consideration for the vents / chimney, solar panel/wind turbine and en
 - Wind turbine: even worse in term of attack surface - maybe could be folded too though (like in Fallout for the hidden brotherhood camp)
 - Also would need sufficient batteries to last a number of hours considering the inconsistent generation - actually would need to cover the night maybe even more than a day because of no sun or lack of wind.
 ## Water production
-- Filter river/mountain water nearby?
+- Filter river/mountain water if nearby?
 - Recycle grey water
 - Filter rain water
 ## Sewage system
