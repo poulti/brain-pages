@@ -8,7 +8,7 @@ tags: Blog
 # Location / environment based
 
 ## Storm drains
-- Not at the bottom of a hill/next to water (contradicts the water turbine)
+- Not at the bottom of a hill/next to water (contradicts the water turbine - unless it's on the way, not at the very bottom. also can cable to a junction near the house)
 - Need to check how the underground layers usually are laid out and how the water flows downhill. Construction may need to be like a "boat", ie. completely watertight, so water goes around the house.
 ## Earthquake
 - Not sure the build can do much about this --> avoid locations prone to it. I guess the UK is OK for that.
