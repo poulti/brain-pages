@@ -22,7 +22,7 @@ But needs consideration for the vents / chimney, solar panel/wind turbine and en
 Overall, probably easier to have a prefab pod that is built for this condition and test outside, and just dig a big hole for it.
 
 ## Waterproof/damp proof
-- Maybe a container type, like the garden house (good isolation and watertight).
+- Maybe a container type, like the garden house (good heat isolation and watertight).
 
 ## Ventilation + filtration system
 - Heat pump for to warming or cooling 
