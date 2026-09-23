@@ -23,7 +23,7 @@ Overall, probably easier to have a prefab pod that is built for this condition a
 
 ## Waterproof/damp proof
 - Maybe a container type, like the garden house (good heat isolation and watertight).
-- Just in case, could benefit from having a water pumping (out) system, if water would get in? Electricity needs to be designed so it doesn't trip though
+- Just in case, could benefit from having a water pumping (out) system, if water would get in? Electricity needs to be designed so it doesn't trip though.
 
 ## Ventilation + filtration system
 - Heat pump for to warming or cooling 
