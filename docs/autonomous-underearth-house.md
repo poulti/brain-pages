@@ -26,7 +26,7 @@ Overall, probably easier to have a prefab pod that is built for this condition a
 - Just in case, could benefit from having a water pumping (out) system, if water would get in? Electricity needs to be designed so it doesn't trip though.
 
 ## Ventilation + filtration system
-- Heat pump for to warming or cooling 
+- Heat pump for to warming or cooling (and drying?)
 - Also needs HVAC with filters to purify / renew the air (CO2 out, O2 in) and while at it, be hazard proof: Chemical, Biological, Radiological, and Nuclear (CBRN) threats prevention. Look for bunker ventilation HVAC with filters.
 
 # Primary input and output
