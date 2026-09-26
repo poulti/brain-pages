@@ -5,7 +5,7 @@ tags: Blog
 > _This is a (human only) brainstorming about having an off grid, independent house/bunker, and buried under the earth_
 
 # Challenges to address
-# Location / environment based
+# Location considerations based on natural hazard
 
 ## Storm drains
 - Not at the bottom of a hill/next to water (contradicts the water turbine - unless it's on the way, not at the very bottom. also can cable to a junction near the house)
@@ -15,7 +15,6 @@ tags: Blog
 ## High winds / tornado
 Shouldn't be too much of a problem under earth.
 But needs consideration for the vents / chimney, solar panel/wind turbine and entrance
-
 
 # Build of the house
 
