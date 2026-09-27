@@ -16,7 +16,7 @@ tags: Blog
 Shouldn't be too much of a problem under earth.
 But needs consideration for the vents / chimney, solar panel/wind turbine and entrance
 
-# Build of the house
+# Build properties of the house
 
 Overall, probably easier to have a prefab pod that is built for this condition and test outside, and just dig a big hole for it.
 
