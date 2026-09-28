@@ -5,6 +5,7 @@ tags: Blog
 > _This is a (human only) brainstorming about having an off grid, independent house/bunker, and buried under the earth_
 
 # Challenges to address
+
 # Location considerations based on natural hazard
 
 ## Storm drains
