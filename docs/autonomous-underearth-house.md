@@ -19,7 +19,7 @@ But needs consideration for the vents / chimney, solar panel/wind turbine and en
 
 # Build properties of the house
 
-Overall, probably easier to have a prefab pod that is built for this condition and tested outside, and just dig a big hole for it.
+Overall, probably easier to have a prefab pod that is built for underground condition and tested outside, and just dig a big hole for it.
 
 ## Waterproof/damp proof
 - Maybe a container type, like the garden house (good heat isolation and watertight).
