@@ -18,7 +18,6 @@ Shouldn't be too much of a problem under earth.
 But needs consideration for the vents / chimney, solar panel/wind turbine and entrance
 
 # Build properties of the house
-
 Overall, probably easier to have a prefab pod that is built for underground condition and tested outside, and just dig a big hole for it.
 
 ## Waterproof/damp proof
