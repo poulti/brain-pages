@@ -34,14 +34,16 @@ Overall, probably easier to have a prefab pod that is built for underground cond
 - Water turbine from river - from youtube video, this was enough to power a pump to give water, but not power the whole thing. And if the river dries out from global warming, kills that's a SPOF.
 - Wind turbine: even worse in term of attack surface - maybe could be folded too though (like in Fallout for the hidden brotherhood camp)
 - Also would need sufficient batteries to last a number of hours considering the inconsistent generation - actually would need to cover the night maybe even more than a day because of no sun or lack of wind.
+
 ## Water production
 - Filter river/mountain water, if nearby - potentially drinkable?
 - Collect and filter rain water
 - Recycle grey water
+
 ## Sewage system
 - Must have a difference between tap/shower water and toilets flush. Maybe two different treatments?
 - Grey and foul? In isolation (in the middle of nowhere) could the second one be treated to be released with the first? Like a mixer?
-- Off grid toilets system seem to move waste mechanically (with a manually actioned pump) and turn the waste into fertilizer with bacteria - so you don't need the sewer at all. Some could even generate gas? I don't know if you can do something with it
+- Off grid toilets system seem to move waste mechanically (with a manually actioned pump) and turn the waste into fertilizer with bacteria - so you don't need the sewer at all. Some could even generate gas? I don't know if you can do something with it, like reuse for power generation
 
 
 # Secondary 
