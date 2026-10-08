@@ -55,7 +55,7 @@ Overall, probably easier to have a prefab pod that is built for underground cond
 - Electricity based?
 
 ## Access
-- How to get inside in a safe way depending on the weather? Like a submarine entrance?
+- How to get inside in a safe way depending on the weather? Like a submarine entrance/sas?
 - In any case, likely planning a small room to clean shoes and stuff
 
 ## Oxygen/CO2 levels + emergency alarm?
