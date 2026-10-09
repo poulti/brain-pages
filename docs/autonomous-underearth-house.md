@@ -59,5 +59,5 @@ Overall, probably easier to have a prefab pod that is built for underground cond
 - In any case, likely planning a small room to clean shoes and stuff
 
 ## Oxygen/CO2 levels + emergency alarm?
-ie. what if the vent for the Aircon gets stuck and CO2 level raises.
-What do they do in a submarine?
+- ie. what if the vent for the Aircon gets stuck and CO2 level raises.
+- TODO: What do they do in a submarine?
