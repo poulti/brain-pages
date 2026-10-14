@@ -59,8 +59,8 @@ Overall, probably easier to have a prefab pod that is built for underground cond
 - In any case, likely planning a small room to clean shoes and stuff
 
 ## Oxygen/CO2 levels + emergency alarm?
-- ie. what if the vent for the Aircon gets stuck and CO2 level raises.
-In a submarine, they have these machanism:
+For O2, in a submarine, they have these machanism:
 - Electrolytic Oxygen Generation (EOG): The primary method uses electricity from the nuclear reactor (or ship's power) to split purified seawater into hydrogen and oxygen (2H₂O → 2H₂ + O₂). The oxygen is pumped into the cabin air, while the flammable hydrogen is safely vented overboard.
 - High-Pressure Oxygen Banks: Pure oxygen is stored in pressurized tanks so it can be added to the atmosphere whenever sensors detect a drop.
 - Oxygen Candles (Backup): In emergencies or power failures, chemical oxygen generators (metal cylinders made of sodium chlorate and iron powder) are ignited to produce steady oxygen through a self-oxidizing reaction.
+- How to renew or soak CO2 level raises?
