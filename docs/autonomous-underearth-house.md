@@ -43,6 +43,7 @@ Overall, probably easier to have a prefab pod that is built for underground cond
 ## Sewage system
 - Must have a difference between tap/shower water and toilets flush. Maybe two different treatments?
 - Grey and foul? In isolation (in the middle of nowhere) could the second one be treated to be released with the first? Like a mixer?
+- Off grid sewer uses a sceptic tank to pre-treat the foul content, then disperse in the land, to be filtered by the layers of soil.
 - Off grid toilets system seem to move waste mechanically (with a manually actioned pump) and turn the waste into fertilizer with bacteria - so you don't need the sewer at all. 
     - Some could even generate gas? I don't know if you can do something with it, like reuse for power generation
 
