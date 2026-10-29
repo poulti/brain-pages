@@ -45,7 +45,8 @@ Overall, probably easier to have a prefab pod that is built for underground cond
 - Off grid sewer uses a sceptic tank to pre-treat the foul content, then disperse in the land, to be filtered by the layers of soil, natural filtering.
 - In isolation (in the middle of nowhere) could the second one be treated to be released with the first? Thats what the sceptic tank does. But could it be more recycled to be reused as water source?
 - Off grid toilets system seem to move waste mechanically (with a manually actioned pump) and turn the waste into fertilizer with bacteria - so you don't need the sewer at all. 
-    - Some could even generate gas? I don't know if you can do something with it, like reuse for power generation
+    - Some could even generate gas? I don't know if you can do something with it, like reuse for power generation.
+    - Sounds too limited while the whole room would have more need than one toilet.
 
 
 # Secondary 
