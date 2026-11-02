@@ -51,7 +51,7 @@ Overall, probably easier to have a prefab pod that is built for underground cond
 
 # Secondary 
 ## Heating / cooling 
-- Via the ventilation system - will need an external mini house to have the exhausts/external units
+- Via the ventilation system - will need an external shed to have the exhausts/external units protected from animals.
 
 ## Heating water
 - Gas is impossible to source naturally -- actually... maybe it could be recycled from the toilets, but not sure it's a good idea to create a dependency on going to sh... to take a warm shower :D
