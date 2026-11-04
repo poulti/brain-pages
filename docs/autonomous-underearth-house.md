@@ -59,7 +59,7 @@ Overall, probably easier to have a prefab pod that is built for underground cond
 
 ## Access
 - How to get inside in a safe way depending on the weather? Like a submarine entrance/sas?
-- In any case, likely planning a small space to clean shoes and stuff / remove coats or others things that could be wet
+- A small space to clean shoes and remove coats or others things that could be wet/contaminated
 
 ## Oxygen/CO2 levels + emergency alarm?
 For O2, in a submarine, they have these machanism:
