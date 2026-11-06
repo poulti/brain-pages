@@ -55,7 +55,7 @@ Overall, probably easier to have a prefab pod that is built for underground cond
 
 ## Heating water
 - Gas is impossible to source naturally -- actually... maybe it could be recycled from the toilets, but not sure it's a good idea to create a dependency on going to sh... to take a warm shower :D
-- Electricity based?
+- Electricity based - solar panel and cylinder like in morroco?
 
 ## Access
 - A small space from the stairs/ladder, to clean shoes and remove coats or others things that could be wet/contaminated
