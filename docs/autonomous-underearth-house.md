@@ -58,7 +58,7 @@ Overall, probably easier to have a prefab pod that is built for underground cond
 - Electricity based - solar panel and cylinder like in Morroco?
 
 ## Access
-- A small space from the stairs/ladder, to clean shoes and remove coats or others things that could be wet/contaminated
+- A small space from the stairs/ladder, to clean shoes and remove coats or others things that could be wet/contaminated.
 
 ## Oxygen/CO2 levels + emergency alarm?
 For O2, in a submarine, they have these machanism:
