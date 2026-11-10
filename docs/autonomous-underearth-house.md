@@ -55,13 +55,13 @@ Overall, probably easier to have a prefab pod that is built for underground cond
 
 ## Heating water
 - Gas is impossible to source naturally -- actually... maybe it could be recycled from the toilets, but not sure it's a good idea to create a dependency on going to sh... to take a warm shower :D
-- Electricity based - solar panel and cylinder like in Morroco?
+- Electricity based - solar panel and cylinder like in Morocco?
 
 ## Access
 - A small space from the stairs/ladder, to clean shoes and remove coats or others things that could be wet/contaminated.
 
 ## Oxygen/CO2 levels + emergency alarm?
-For O2, in a submarine, they have these machanism:
+For O2, in a submarine, they have these mechanism:
 - Electrolytic Oxygen Generation (EOG): The primary method uses electricity from the nuclear reactor (or ship's power) to split purified seawater into hydrogen and oxygen (2H₂O → 2H₂ + O₂). The oxygen is pumped into the cabin air, while the flammable hydrogen is safely vented overboard.
 - High-Pressure Oxygen Banks: Pure oxygen is stored in pressurized tanks so it can be added to the atmosphere whenever sensors detect a drop.
 - "Oxygen Candles" (Backup): In emergencies or power failures, chemical oxygen generators (metal cylinders made of sodium chlorate and iron powder) are ignited to produce steady oxygen through a self-oxidizing reaction.
