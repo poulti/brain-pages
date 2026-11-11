@@ -37,6 +37,7 @@ Overall, probably easier to have a prefab pod that is built for underground cond
 
 ## Water production
 - Filter river/mountain water, if nearby - potentially drinkable?
+- Collect water from a well / groundwater?
 - Collect and filter rain water
 - Recycle grey water
 
