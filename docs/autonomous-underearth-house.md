@@ -36,10 +36,12 @@ Overall, probably easier to have a prefab pod that is built for underground cond
 - Also would need sufficient batteries to last a number of hours considering the inconsistent generation - actually would need to cover the night maybe even more than a day because of no sun or lack of wind.
 
 ## Water production
+Primary source
 - Filter river/mountain water, if nearby - potentially drinkable?
 - Collect water from a well / groundwater?
-- Collect and filter rain water - not sure it gives enough for the space it takes
+Secondary source
 - Recycle grey water
+- Collect and filter rain water - not sure it gives enough for the space it takes
 
 ## Sewage system
 - Must have a difference between tap/shower water and toilets flush. Maybe two different treatments: Grey and foul?
