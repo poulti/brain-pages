@@ -39,6 +39,7 @@ Overall, probably easier to have a prefab pod that is built for underground cond
 Primary source:
 - Filter river/mountain water, if nearby - potentially drinkable?
 - Collect water from a well / groundwater?
+
 Secondary source:
 - Recycle grey water
 - Collect and filter rain water - not sure it gives enough for the space it takes
